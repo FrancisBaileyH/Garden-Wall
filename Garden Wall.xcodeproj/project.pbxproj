@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B37EAA391C067245002D3925 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = B37EAA381C067245002D3925 /* blockerList.json */; };
+		B37EAA3B1C067245002D3925 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37EAA3A1C067245002D3925 /* ActionRequestHandler.swift */; };
+		B37EAA3F1C067245002D3925 /* ContentBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B37EAA361C067245002D3925 /* ContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B3F42BBF1C066797006D6575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F42BBE1C066797006D6575 /* AppDelegate.swift */; };
 		B3F42BC11C066797006D6575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F42BC01C066797006D6575 /* ViewController.swift */; };
 		B3F42BC41C066797006D6575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F42BC21C066797006D6575 /* Main.storyboard */; };
@@ -14,9 +17,17 @@
 		B3F42BC91C066797006D6575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F42BC71C066797006D6575 /* LaunchScreen.storyboard */; };
 		B3F42BD41C066797006D6575 /* Garden_WallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F42BD31C066797006D6575 /* Garden_WallTests.swift */; };
 		B3F42BDF1C066797006D6575 /* Garden_WallUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F42BDE1C066797006D6575 /* Garden_WallUITests.swift */; };
+		C9EA042C342CF7441A0F590D /* Pods_Garden_Wall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7324FE3ABA1ACCFE4613234 /* Pods_Garden_Wall.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B37EAA3D1C067245002D3925 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3F42BB31C066797006D6575 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B37EAA351C067245002D3925;
+			remoteInfo = ContentBlocker;
+		};
 		B3F42BD01C066797006D6575 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B3F42BB31C066797006D6575 /* Project object */;
@@ -33,7 +44,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B37EAA431C067245002D3925 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B37EAA3F1C067245002D3925 /* ContentBlocker.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1B2D18FCA77B029A10307463 /* Pods-Garden Wall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garden Wall.release.xcconfig"; path = "Pods/Target Support Files/Pods-Garden Wall/Pods-Garden Wall.release.xcconfig"; sourceTree = "<group>"; };
+		A1D5BC2C9BF39F466CD7FEEF /* Pods-Garden Wall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garden Wall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Garden Wall/Pods-Garden Wall.debug.xcconfig"; sourceTree = "<group>"; };
+		B37EAA361C067245002D3925 /* ContentBlocker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ContentBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B37EAA381C067245002D3925 /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
+		B37EAA3A1C067245002D3925 /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
+		B37EAA3C1C067245002D3925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3F42BBB1C066797006D6575 /* Garden Wall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Garden Wall.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F42BBE1C066797006D6575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3F42BC01C066797006D6575 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,13 +78,22 @@
 		B3F42BDA1C066797006D6575 /* Garden WallUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Garden WallUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F42BDE1C066797006D6575 /* Garden_WallUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Garden_WallUITests.swift; sourceTree = "<group>"; };
 		B3F42BE01C066797006D6575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7324FE3ABA1ACCFE4613234 /* Pods_Garden_Wall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Garden_Wall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B37EAA331C067245002D3925 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B3F42BB81C066797006D6575 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9EA042C342CF7441A0F590D /* Pods_Garden_Wall.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,13 +114,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E2DBFBF6698E9C0ECB680B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7324FE3ABA1ACCFE4613234 /* Pods_Garden_Wall.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6918F9DABA309D42A691ECE9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1D5BC2C9BF39F466CD7FEEF /* Pods-Garden Wall.debug.xcconfig */,
+				1B2D18FCA77B029A10307463 /* Pods-Garden Wall.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B37EAA371C067245002D3925 /* ContentBlocker */ = {
+			isa = PBXGroup;
+			children = (
+				B37EAA381C067245002D3925 /* blockerList.json */,
+				B37EAA3A1C067245002D3925 /* ActionRequestHandler.swift */,
+				B37EAA3C1C067245002D3925 /* Info.plist */,
+			);
+			path = ContentBlocker;
+			sourceTree = "<group>";
+		};
 		B3F42BB21C066797006D6575 = {
 			isa = PBXGroup;
 			children = (
 				B3F42BBD1C066797006D6575 /* Garden Wall */,
 				B3F42BD21C066797006D6575 /* Garden WallTests */,
 				B3F42BDD1C066797006D6575 /* Garden WallUITests */,
+				B37EAA371C067245002D3925 /* ContentBlocker */,
 				B3F42BBC1C066797006D6575 /* Products */,
+				6918F9DABA309D42A691ECE9 /* Pods */,
+				3E2DBFBF6698E9C0ECB680B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +160,7 @@
 				B3F42BBB1C066797006D6575 /* Garden Wall.app */,
 				B3F42BCF1C066797006D6575 /* Garden WallTests.xctest */,
 				B3F42BDA1C066797006D6575 /* Garden WallUITests.xctest */,
+				B37EAA361C067245002D3925 /* ContentBlocker.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,17 +199,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B3F42BBA1C066797006D6575 /* Garden Wall */ = {
+		B37EAA351C067245002D3925 /* ContentBlocker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B3F42BE31C066797006D6575 /* Build configuration list for PBXNativeTarget "Garden Wall" */;
+			buildConfigurationList = B37EAA401C067245002D3925 /* Build configuration list for PBXNativeTarget "ContentBlocker" */;
 			buildPhases = (
-				B3F42BB71C066797006D6575 /* Sources */,
-				B3F42BB81C066797006D6575 /* Frameworks */,
-				B3F42BB91C066797006D6575 /* Resources */,
+				B37EAA321C067245002D3925 /* Sources */,
+				B37EAA331C067245002D3925 /* Frameworks */,
+				B37EAA341C067245002D3925 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+			);
+			name = ContentBlocker;
+			productName = ContentBlocker;
+			productReference = B37EAA361C067245002D3925 /* ContentBlocker.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		B3F42BBA1C066797006D6575 /* Garden Wall */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3F42BE31C066797006D6575 /* Build configuration list for PBXNativeTarget "Garden Wall" */;
+			buildPhases = (
+				D12533DD3712F6097EFAB797 /* Check Pods Manifest.lock */,
+				B3F42BB71C066797006D6575 /* Sources */,
+				B3F42BB81C066797006D6575 /* Frameworks */,
+				B3F42BB91C066797006D6575 /* Resources */,
+				40BC706A3FD712D2988D7982 /* Embed Pods Frameworks */,
+				F51B315DD53B3559BB5B711D /* Copy Pods Resources */,
+				B37EAA431C067245002D3925 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B37EAA3E1C067245002D3925 /* PBXTargetDependency */,
 			);
 			name = "Garden Wall";
 			productName = "Garden Wall";
@@ -191,6 +284,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Francis Bailey";
 				TargetAttributes = {
+					B37EAA351C067245002D3925 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
 					B3F42BBA1C066797006D6575 = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
@@ -220,11 +316,20 @@
 				B3F42BBA1C066797006D6575 /* Garden Wall */,
 				B3F42BCE1C066797006D6575 /* Garden WallTests */,
 				B3F42BD91C066797006D6575 /* Garden WallUITests */,
+				B37EAA351C067245002D3925 /* ContentBlocker */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B37EAA341C067245002D3925 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B37EAA391C067245002D3925 /* blockerList.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B3F42BB91C066797006D6575 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -251,7 +356,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		40BC706A3FD712D2988D7982 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Garden Wall/Pods-Garden Wall-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D12533DD3712F6097EFAB797 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F51B315DD53B3559BB5B711D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Garden Wall/Pods-Garden Wall-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		B37EAA321C067245002D3925 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B37EAA3B1C067245002D3925 /* ActionRequestHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B3F42BB71C066797006D6575 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -280,6 +441,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B37EAA3E1C067245002D3925 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B37EAA351C067245002D3925 /* ContentBlocker */;
+			targetProxy = B37EAA3D1C067245002D3925 /* PBXContainerItemProxy */;
+		};
 		B3F42BD11C066797006D6575 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B3F42BBA1C066797006D6575 /* Garden Wall */;
@@ -312,6 +478,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B37EAA411C067245002D3925 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				INFOPLIST_FILE = ContentBlocker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.francisbailey.Garden-Wall.ContentBlocker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B37EAA421C067245002D3925 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				INFOPLIST_FILE = ContentBlocker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.francisbailey.Garden-Wall.ContentBlocker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		B3F42BE11C066797006D6575 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -397,8 +587,10 @@
 		};
 		B3F42BE41C066797006D6575 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1D5BC2C9BF39F466CD7FEEF /* Pods-Garden Wall.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Garden Wall/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.francisbailey.Garden-Wall";
@@ -408,8 +600,10 @@
 		};
 		B3F42BE51C066797006D6575 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B2D18FCA77B029A10307463 /* Pods-Garden Wall.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Garden Wall/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.francisbailey.Garden-Wall";
@@ -468,6 +662,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B37EAA401C067245002D3925 /* Build configuration list for PBXNativeTarget "ContentBlocker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B37EAA411C067245002D3925 /* Debug */,
+				B37EAA421C067245002D3925 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B3F42BB61C066797006D6575 /* Build configuration list for PBXProject "Garden Wall" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -484,6 +686,7 @@
 				B3F42BE51C066797006D6575 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3F42BE61C066797006D6575 /* Build configuration list for PBXNativeTarget "Garden WallTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +695,7 @@
 				B3F42BE81C066797006D6575 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3F42BE91C066797006D6575 /* Build configuration list for PBXNativeTarget "Garden WallUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +704,7 @@
 				B3F42BEB1C066797006D6575 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
