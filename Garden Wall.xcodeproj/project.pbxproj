@@ -10,8 +10,12 @@
 		B37EAA391C067245002D3925 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = B37EAA381C067245002D3925 /* blockerList.json */; };
 		B37EAA3B1C067245002D3925 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37EAA3A1C067245002D3925 /* ActionRequestHandler.swift */; };
 		B37EAA3F1C067245002D3925 /* ContentBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B37EAA361C067245002D3925 /* ContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B398DAB01C0673C700F9F340 /* ContentBlocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAAF1C0673C700F9F340 /* ContentBlocker.swift */; };
+		B398DAB01C0673C700F9F340 /* ContentBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAAF1C0673C700F9F340 /* ContentBlockerManager.swift */; };
 		B398DAB21C0678EA00F9F340 /* ContentBlockerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */; };
+		B3DFA07A1C0698DF00A89BC6 /* ContentBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAAF1C0673C700F9F340 /* ContentBlockerManager.swift */; };
+		B3DFA07B1C0698EA00A89BC6 /* ContentBlockerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */; };
+		B3DFA07F1C06999200A89BC6 /* ContentBlockerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DFA07E1C06999200A89BC6 /* ContentBlockerTests.swift */; };
+		B3DFA0811C069B6700A89BC6 /* TestContentBlocker.json in Resources */ = {isa = PBXBuildFile; fileRef = B3DFA0801C069B6700A89BC6 /* TestContentBlocker.json */; };
 		B3F42BBF1C066797006D6575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F42BBE1C066797006D6575 /* AppDelegate.swift */; };
 		B3F42BC11C066797006D6575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F42BC01C066797006D6575 /* ViewController.swift */; };
 		B3F42BC41C066797006D6575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F42BC21C066797006D6575 /* Main.storyboard */; };
@@ -67,8 +71,10 @@
 		B37EAA381C067245002D3925 /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
 		B37EAA3A1C067245002D3925 /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
 		B37EAA3C1C067245002D3925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B398DAAF1C0673C700F9F340 /* ContentBlocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlocker.swift; sourceTree = "<group>"; };
+		B398DAAF1C0673C700F9F340 /* ContentBlockerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlockerManager.swift; sourceTree = "<group>"; };
 		B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlockerRule.swift; sourceTree = "<group>"; };
+		B3DFA07E1C06999200A89BC6 /* ContentBlockerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlockerTests.swift; sourceTree = "<group>"; };
+		B3DFA0801C069B6700A89BC6 /* TestContentBlocker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestContentBlocker.json; sourceTree = "<group>"; };
 		B3F42BBB1C066797006D6575 /* Garden Wall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Garden Wall.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F42BBE1C066797006D6575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3F42BC01C066797006D6575 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -178,7 +184,7 @@
 				B3F42BC51C066797006D6575 /* Assets.xcassets */,
 				B3F42BC71C066797006D6575 /* LaunchScreen.storyboard */,
 				B3F42BCA1C066797006D6575 /* Info.plist */,
-				B398DAAF1C0673C700F9F340 /* ContentBlocker.swift */,
+				B398DAAF1C0673C700F9F340 /* ContentBlockerManager.swift */,
 				B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */,
 			);
 			path = "Garden Wall";
@@ -187,8 +193,10 @@
 		B3F42BD21C066797006D6575 /* Garden WallTests */ = {
 			isa = PBXGroup;
 			children = (
+				B3DFA07E1C06999200A89BC6 /* ContentBlockerTests.swift */,
 				B3F42BD31C066797006D6575 /* Garden_WallTests.swift */,
 				B3F42BD51C066797006D6575 /* Info.plist */,
+				B3DFA0801C069B6700A89BC6 /* TestContentBlocker.json */,
 			);
 			path = "Garden WallTests";
 			sourceTree = "<group>";
@@ -350,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3DFA0811C069B6700A89BC6 /* TestContentBlocker.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,7 +435,7 @@
 				B398DAB21C0678EA00F9F340 /* ContentBlockerRule.swift in Sources */,
 				B3F42BC11C066797006D6575 /* ViewController.swift in Sources */,
 				B3F42BBF1C066797006D6575 /* AppDelegate.swift in Sources */,
-				B398DAB01C0673C700F9F340 /* ContentBlocker.swift in Sources */,
+				B398DAB01C0673C700F9F340 /* ContentBlockerManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +443,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3DFA07F1C06999200A89BC6 /* ContentBlockerTests.swift in Sources */,
+				B3DFA07B1C0698EA00A89BC6 /* ContentBlockerRule.swift in Sources */,
+				B3DFA07A1C0698DF00A89BC6 /* ContentBlockerManager.swift in Sources */,
 				B3F42BD41C066797006D6575 /* Garden_WallTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

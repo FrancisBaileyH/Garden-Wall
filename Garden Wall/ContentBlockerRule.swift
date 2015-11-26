@@ -12,7 +12,7 @@ import ObjectMapper
 
 
 /*
- * An enumeration representing the possible action values in a rule action
+ * An enumeration representing the possible type values in a rule action
 */
 enum ContentBlockerRuleActionType: String {
     case block          = "block"
@@ -60,6 +60,19 @@ struct ContentBlockerRuleTrigger: Mappable {
     
     
     init?(_ map: Map) { }
+
+
+    init() { }
+    
+    
+    init(urlFilter: String, urlCase: Bool?, loadType: ContentBlockerRuleTriggerLoadType?, resourceType: ContentBlockerRuleTriggerResourceType?, ifDomain: String?) {
+        
+        self.urlFilter = urlFilter
+        self.urlFilterIsCaseSensitive = urlCase
+        self.loadType = loadType
+        self.resourceType = resourceType
+        self.ifDomain = ifDomain
+    }
     
     
     mutating func mapping(map: Map) {
@@ -85,6 +98,15 @@ struct ContentBlockerRuleAction: Mappable {
     init?(_ map: Map) { }
     
     
+    init() { }
+    
+    
+    init(type: ContentBlockerRuleActionType, selector: String?) {
+        self.type = type
+        self.selector = selector
+    }
+    
+    
     mutating func mapping(map: Map) {
         
         type     <- (map["type"], EnumTransform())
@@ -103,6 +125,13 @@ class ContentBlockerRule: Mappable {
     
     
     required init?(_ map: Map) { }
+    
+    
+    init(action: ContentBlockerRuleAction, trigger: ContentBlockerRuleTrigger) {
+        
+        self.action = action
+        self.trigger = trigger
+    }
     
     
     func mapping(map: Map) {

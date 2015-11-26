@@ -1,0 +1,20 @@
+[
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "resource-type": ["image", "style-sheet"],
+            "unless-domain": ["reputable-content-server.com"]
+        },
+        "action": {
+            "type": "block-cookies"
+        }
+    },
+    {
+        "trigger": {
+        "url-filter": "evil-tracker\\.js"
+    },
+        "action": {
+        "type": "block"
+        }
+    }
+ ]
