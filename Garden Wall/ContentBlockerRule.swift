@@ -7,8 +7,13 @@
 //
 
 import Foundation
+import ObjectMapper
 
 
+
+/*
+ * An enumeration representing the possible action values in a rule action
+*/
 enum ContentBlockerRuleActionType: String {
     case block          = "block"
     case blockCookies   = "block-cookies"
@@ -17,12 +22,18 @@ enum ContentBlockerRuleActionType: String {
 }
 
 
+/*
+ * An enumeration representing the possible load-type values in a rule trigger
+*/
 enum ContentBlockerRuleTriggerLoadType: String {
     case firstParty = "first-party"
     case thirdParty = "third-party"
 }
 
 
+/*
+ * An enumeration representing the possible resource-type values in a rule trigger
+*/
 enum ContentBlockerRuleTriggerResourceType: String {
     case document   = "document"
     case font       = "font"
@@ -36,51 +47,68 @@ enum ContentBlockerRuleTriggerResourceType: String {
 }
 
 
-struct ContentBlockerRuleTrigger {
-    var urlFilter: String
+/*
+ * A JSON Mappable entity that represents the Trigger part of a Content Blocker rule
+*/
+struct ContentBlockerRuleTrigger: Mappable {
+    
+    var urlFilter: String!
     var urlFilterIsCaseSensitive: Bool?
     var loadType: ContentBlockerRuleTriggerLoadType?
     var resourceType: ContentBlockerRuleTriggerResourceType?
     var ifDomain: String?
+    
+    
+    init?(_ map: Map) { }
+    
+    
+    mutating func mapping(map: Map) {
+        
+        urlFilter                <- map["url-filter"]
+        urlFilterIsCaseSensitive <- map["url-filter-is-case-sensitive"]
+        loadType                 <- (map["load-type"], EnumTransform())
+        resourceType             <- (map["resource-type"], EnumTransform())
+        ifDomain                 <- map["if-domain"]
+    }
 }
 
 
-struct ContentBlockerRuleAction {
-    var type: ContentBlockerRuleActionType
+/*
+* A JSON Mappable entity that represents the Action part of a Content Blocker rule
+*/
+struct ContentBlockerRuleAction: Mappable {
+    
+    var type: ContentBlockerRuleActionType!
     var selector: String?
+    
+    
+    init?(_ map: Map) { }
+    
+    
+    mutating func mapping(map: Map) {
+        
+        type     <- (map["type"], EnumTransform())
+        selector <- map["selector"]
+    }
 }
 
 
-class ContentBlockerRule {
+/*
+ * A JSON Mappable entity that represents a Content Blocker Rule
+*/
+class ContentBlockerRule: Mappable {
     
-    private var action: ContentBlockerRuleAction
-    private var trigger: ContentBlockerRuleTrigger
+    private var action: ContentBlockerRuleAction!
+    private var trigger: ContentBlockerRuleTrigger!
     
     
-    init (action: ContentBlockerRuleAction, trigger: ContentBlockerRuleTrigger) {
-        self.action = action
-        self.trigger = trigger
+    required init?(_ map: Map) { }
+    
+    
+    func mapping(map: Map) {
+        
+        action <- map["action"]
+        trigger <- map["trigger"]
     }
-    
-    
-    func setTrigger(trigger: ContentBlockerRuleTrigger) {
-        self.trigger = trigger
-    }
-    
-    
-    func setAction(action: ContentBlockerRuleAction) {
-        self.action = action
-    }
-    
-    
-    func getAction() -> ContentBlockerRuleAction {
-        return self.action
-    }
-    
-    
-    func getTrigger() -> ContentBlockerRuleTrigger {
-        return self.trigger
-    }
-    
-    
 }
+
