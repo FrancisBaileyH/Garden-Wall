@@ -60,8 +60,6 @@ struct ContentBlockerRuleTrigger: Mappable {
     
     
     init?(_ map: Map) { }
-
-
     init() { }
     
     
@@ -96,8 +94,6 @@ struct ContentBlockerRuleAction: Mappable {
     
     
     init?(_ map: Map) { }
-    
-    
     init() { }
     
     
@@ -129,14 +125,14 @@ class ContentBlockerRule: Mappable {
     
     init(action: ContentBlockerRuleAction, trigger: ContentBlockerRuleTrigger) {
         
-        self.action = action
+        self.action  = action
         self.trigger = trigger
     }
     
     
     func mapping(map: Map) {
         
-        action <- map["action"]
+        action  <- map["action"]
         trigger <- map["trigger"]
     }
 }
