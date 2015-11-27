@@ -16,30 +16,43 @@ class ContentBlockerRuleManager {
     
     
     private var json: JSON
-    //private var writer:
+
     
-    // writer.write(JSON)
     init(json: JSON) {
         self.json = json
     }
     
     
-    func create(rule: ContentBlockerRule) {
+    /*
+     * Create a rule if the rule does not exist yet, otherwise return false
+    */
+    func create(rule: ContentBlockerRule) -> Bool {
+        
+        let jsonRule = convertRuleToJSON(rule)
+        
+        if getIndexOfRule(jsonRule) == nil {
+        
+            let jsonRule = convertRuleToJSON(rule)
 
+            if let _ = (self.json.arrayObject?.count) {
+                self.json.arrayObject?.append(jsonRule.rawValue)
+                return true
+            }
+        }
         
-        
+        return false
     }
     
     
     /*
-     * Search for and delete a given rul in the content blocker JSON
+     * Search for and delete a given rule in the content blocker JSON
     */
     func delete(rule: ContentBlockerRule) {
 
         let jsonRule = convertRuleToJSON(rule)
         
         if let index = getIndexOfRule(jsonRule) {
-            self.json.dictionaryObject?.removeValueForKey(index)
+            self.json.arrayObject?.removeAtIndex(index)
         }
     }
     
@@ -47,14 +60,31 @@ class ContentBlockerRuleManager {
     /*
      * Update a rule a given rule in the content blocker JSON
     */
-    func update(rule: ContentBlockerRule) {
+    func update(index: Int, rule: ContentBlockerRule) {
         
         let jsonRule = convertRuleToJSON(rule)
         
-        if let index = getIndexOfRule(jsonRule) {
+        if self.json[index].isExists() {
             
             self.json[index] = jsonRule
         }
+    }
+    
+    
+    /*
+     * Retrieve a rule from the JSON if it exists
+    */
+    func fetch(index: Int) -> ContentBlockerRule? {
+        
+        if let jsonRule = self.json[index].rawString() {
+        
+            if let rule = Mapper<ContentBlockerRule>().map(jsonRule) {
+                
+                return rule
+            }
+        }
+        
+        return nil
     }
     
     
@@ -80,16 +110,12 @@ class ContentBlockerRuleManager {
     /*
      * Fetch the index of a rule if it exists in the JSON object
     */
-    func getIndexOfRule(rule: JSON) -> String? {
+    func getIndexOfRule(rule: JSON) -> Int? {
         
-        NSLog("Called")
-        
-        for (key, value):(String, JSON) in self.json {
-            
-            NSLog("\(value)")
+        for (index, value):(String, JSON) in self.json {
             
             if value == rule {
-                return key
+                return Int(index)
             }
         }
         

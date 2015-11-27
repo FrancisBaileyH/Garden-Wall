@@ -120,8 +120,8 @@ struct ContentBlockerRuleAction: Mappable {
 */
 class ContentBlockerRule: Mappable {
     
-    private var action: ContentBlockerRuleAction!
-    private var trigger: ContentBlockerRuleTrigger!
+    var action: ContentBlockerRuleAction!
+    var trigger: ContentBlockerRuleTrigger!
     
     
     required init?(_ map: Map) { }

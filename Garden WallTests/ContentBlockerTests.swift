@@ -8,67 +8,75 @@
 
 import XCTest
 import SwiftyJSON
+import ObjectMapper
 
 
 class ContentBlockerTests: XCTestCase {
 
     var contentBlocker: ContentBlockerRuleManager?
-    var existingRule: ContentBlockerRule?
+    var existingJSONRule: JSON?
+    var newJSONRule: JSON?
     var newRule: ContentBlockerRule?
+    var existingRule: ContentBlockerRule?
     
     
     
     override func setUp() {
         super.setUp()
         
-        
-        let bundle = NSBundle(forClass: ContentBlockerTests.self)
-        let path = bundle.pathForResource("TestContentBlocker", ofType: "json")
-        
+        let bundle   = NSBundle(forClass: ContentBlockerTests.self)
+        let path     = bundle.pathForResource("TestContentBlocker", ofType: "json")
         let jsonData = NSData(contentsOfFile: path!)
 
-        
         contentBlocker = ContentBlockerRuleManager(json: JSON(data: jsonData!))
         
-        
-        let actionA = ContentBlockerRuleAction(type: ContentBlockerRuleActionType.block, selector: nil)
-        
-        var triggerA = ContentBlockerRuleTrigger()
-        triggerA.loadType = ContentBlockerRuleTriggerLoadType.thirdParty
-        triggerA.urlFilter = ".*"
-        
-        newRule = ContentBlockerRule(action: actionA, trigger: triggerA)
-        
-        
-        var actionB = ContentBlockerRuleAction()
-        actionB.type = ContentBlockerRuleActionType.block
-        
-        var triggerB = ContentBlockerRuleTrigger()
-        triggerB.urlFilter = "evil-tracker\\.js"
-    
-        existingRule = ContentBlockerRule(action: actionB, trigger: triggerB)
+        setupExistingRule()
+        setupNewRule()
     }
     
     
     
     func testGetIndexOf() {
         
-        let existingJSONRule = contentBlocker?.convertRuleToJSON(existingRule!)
-        let newJSONRule = contentBlocker?.convertRuleToJSON(newRule!)
-        
-        let existingIndex = contentBlocker?.getIndexOfRule(existingJSONRule!)
+        let existingIndex    = contentBlocker?.getIndexOfRule(existingJSONRule!)
         let nonexistingIndex = contentBlocker?.getIndexOfRule(newJSONRule!)
         
-        XCTAssertEqual(existingIndex, "1")
+        XCTAssertEqual(existingIndex, 1)
         XCTAssertNil(nonexistingIndex)
     }
     
     
     func testUpdateRule() {
         
-        //let updatedRule =
+        let rule          = contentBlocker?.fetch(0)
+        rule?.action.type = ContentBlockerRuleActionType.blockCookies
         
+        contentBlocker?.update(0, rule: rule!)
         
+        let updatedRule   = contentBlocker?.fetch(0)
+        
+        XCTAssertEqual(rule!.action.type, updatedRule!.action.type)
+    }
+    
+    
+    func testFetchRule() {
+        
+        let index = contentBlocker?.getIndexOfRule(existingJSONRule!)
+        let rule          = contentBlocker?.fetch(index!)
+
+        XCTAssertNotNil(rule)
+    }
+    
+    
+    func testCreateRule() {
+        
+        contentBlocker?.create(newRule!)
+        let result: Bool = (contentBlocker?.create(existingRule!))!
+        
+        let index = contentBlocker?.getIndexOfRule(newJSONRule!)
+
+        XCTAssertNotNil(index)
+        XCTAssertFalse(result)
     }
     
     
@@ -76,12 +84,37 @@ class ContentBlockerTests: XCTestCase {
         
         contentBlocker?.delete(existingRule!)
         
-        let jsonRule = contentBlocker?.convertRuleToJSON(existingRule!)
-        let nonexistingIndex = contentBlocker?.getIndexOfRule(jsonRule!)
+        let index = contentBlocker?.getIndexOfRule(existingJSONRule!)
         
-        XCTAssertNil(nonexistingIndex)
+        XCTAssertNil(index)
     }
     
+    
+    func setupExistingRule() {
+        
+        var action        = ContentBlockerRuleAction()
+        action.type       = ContentBlockerRuleActionType.block
+        
+        var trigger       = ContentBlockerRuleTrigger()
+        trigger.urlFilter = "evil-tracker\\.js"
+        
+        existingRule      = ContentBlockerRule(action: action, trigger: trigger)
+        existingJSONRule  = contentBlocker?.convertRuleToJSON(existingRule!)
+    }
+    
+    
+    func setupNewRule() {
+        
+        var action        = ContentBlockerRuleAction()
+        action.type       = ContentBlockerRuleActionType.block
+        
+        var trigger       = ContentBlockerRuleTrigger()
+        trigger.loadType  = ContentBlockerRuleTriggerLoadType.thirdParty
+        trigger.urlFilter = ".*"
+        
+        newRule           = ContentBlockerRule(action: action, trigger: trigger)
+        newJSONRule       = contentBlocker?.convertRuleToJSON(newRule!)
+    }
     
     
     
