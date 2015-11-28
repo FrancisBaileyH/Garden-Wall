@@ -31,8 +31,6 @@ class ContentBlockerRuleManager {
         let jsonRule = convertRuleToJSON(rule)
         
         if getIndexOfRule(jsonRule) == nil {
-        
-            let jsonRule = convertRuleToJSON(rule)
 
             if let _ = (self.json.arrayObject?.count) {
                 self.json.arrayObject?.append(jsonRule.rawValue)
