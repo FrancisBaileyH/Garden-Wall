@@ -74,15 +74,36 @@ class ContentBlockerRuleManager {
     */
     func fetch(index: Int) -> ContentBlockerRule? {
         
-        if let jsonRule = self.json[index].rawString() {
+        if let jsonString = self.json[index].rawString() {
         
-            if let rule = Mapper<ContentBlockerRule>().map(jsonRule) {
+            if let rule = Mapper<ContentBlockerRule>().map(jsonString) {
                 
                 return rule
             }
         }
         
         return nil
+    }
+    
+    
+    /*
+     * Fetch all json rule blocks and return an array
+    */
+    func fetchAll() -> [ContentBlockerRule]? {
+        
+        var rules: [ContentBlockerRule] = [ContentBlockerRule]()
+        var i = 0
+        
+        for (_, value):(String, JSON) in self.json {
+            
+            let jsonString = value.rawString()
+            
+            if let rule = Mapper<ContentBlockerRule>().map(jsonString) {
+                rules[i++] = rule
+            }
+        }
+        
+        return rules
     }
     
     
