@@ -17,7 +17,7 @@
 		B3DFA07F1C06999200A89BC6 /* ContentBlockerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DFA07E1C06999200A89BC6 /* ContentBlockerTests.swift */; };
 		B3DFA0811C069B6700A89BC6 /* TestContentBlocker.json in Resources */ = {isa = PBXBuildFile; fileRef = B3DFA0801C069B6700A89BC6 /* TestContentBlocker.json */; };
 		B3F42BBF1C066797006D6575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F42BBE1C066797006D6575 /* AppDelegate.swift */; };
-		B3F42BC11C066797006D6575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F42BC01C066797006D6575 /* ViewController.swift */; };
+		B3F42BC11C066797006D6575 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F42BC01C066797006D6575 /* HomeViewController.swift */; };
 		B3F42BC41C066797006D6575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F42BC21C066797006D6575 /* Main.storyboard */; };
 		B3F42BC61C066797006D6575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3F42BC51C066797006D6575 /* Assets.xcassets */; };
 		B3F42BC91C066797006D6575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F42BC71C066797006D6575 /* LaunchScreen.storyboard */; };
@@ -77,7 +77,7 @@
 		B3DFA0801C069B6700A89BC6 /* TestContentBlocker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestContentBlocker.json; sourceTree = "<group>"; };
 		B3F42BBB1C066797006D6575 /* Garden Wall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Garden Wall.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F42BBE1C066797006D6575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B3F42BC01C066797006D6575 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B3F42BC01C066797006D6575 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B3F42BC31C066797006D6575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3F42BC51C066797006D6575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3F42BC81C066797006D6575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				B3F42BBE1C066797006D6575 /* AppDelegate.swift */,
-				B3F42BC01C066797006D6575 /* ViewController.swift */,
+				B3F42BC01C066797006D6575 /* HomeViewController.swift */,
 				B3F42BC21C066797006D6575 /* Main.storyboard */,
 				B3F42BC51C066797006D6575 /* Assets.xcassets */,
 				B3F42BC71C066797006D6575 /* LaunchScreen.storyboard */,
@@ -433,7 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B398DAB21C0678EA00F9F340 /* ContentBlockerRule.swift in Sources */,
-				B3F42BC11C066797006D6575 /* ViewController.swift in Sources */,
+				B3F42BC11C066797006D6575 /* HomeViewController.swift in Sources */,
 				B3F42BBF1C066797006D6575 /* AppDelegate.swift in Sources */,
 				B398DAB01C0673C700F9F340 /* ContentBlockerManager.swift in Sources */,
 			);
