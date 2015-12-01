@@ -11,10 +11,10 @@
     },
     {
         "trigger": {
-        "url-filter": "evil-tracker\\.js"
+            "url-filter": "evil-tracker\\.js"
     },
         "action": {
-        "type": "block"
+            "type": "block"
         }
     }
  ]

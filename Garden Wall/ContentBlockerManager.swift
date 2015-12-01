@@ -110,7 +110,7 @@ class ContentBlockerRuleManager {
     /*
      * Function to convert a ContentBlockerRule object into a JSON object
     */
-    internal func convertRuleToJSON(rule: ContentBlockerRule) -> JSON {
+    func convertRuleToJSON(rule: ContentBlockerRule) -> JSON {
         
         let mapperString = Mapper().toJSONString(rule, prettyPrint: true)
         
@@ -139,6 +139,16 @@ class ContentBlockerRuleManager {
         }
         
         return nil
+    }
+    
+    
+    func count() -> Int {
+        if let count = self.json.arrayObject?.count {
+            return count
+        }
+        else {
+            return 0
+        }
     }
     
     

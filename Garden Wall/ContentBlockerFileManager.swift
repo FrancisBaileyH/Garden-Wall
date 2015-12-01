@@ -17,11 +17,13 @@ class ContentBlockerFileManager {
     
     static func readJSONFile(filename: String) -> JSON? {
         
-        let path     = NSBundle.mainBundle().pathForResource(filename, ofType: "json")
-        let jsonData = NSData(contentsOfFile: path!)
+        if let path = NSBundle.mainBundle().pathForResource(filename, ofType: "json") {
         
-        if let data = jsonData {
-            return JSON(data)
+            let jsonData = NSData(contentsOfFile: path)
+        
+            if let data = jsonData {
+                return JSON(data)
+            }
         }
         
         return nil
@@ -30,18 +32,16 @@ class ContentBlockerFileManager {
     
     static func writeJSONFile(filename: String, fileContents: String) -> Bool {
         
-        let path = NSBundle.mainBundle().pathForResource(filename, ofType: "json")
+        if let path = NSBundle.mainBundle().pathForResource(filename, ofType: "json") {
         
-        do {
-            try fileContents.writeToFile(path!, atomically: false, encoding: NSUTF8StringEncoding)
-            return true
+            do {
+                try fileContents.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding)
+                return true
+            }
+            catch {    }
         }
-        catch {
-            return false
-        }
+    
+        return false
     }
-    
-    
-    
     
 }
