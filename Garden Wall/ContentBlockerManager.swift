@@ -147,7 +147,7 @@ class ContentBlockerRuleManager {
     }
     
     
-    func getJSONString() -> String? {
+    func getRawJSONString() -> String? {
         return self.json.rawString()
     }
 

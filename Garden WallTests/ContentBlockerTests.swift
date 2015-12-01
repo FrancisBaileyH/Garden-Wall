@@ -62,7 +62,7 @@ class ContentBlockerTests: XCTestCase {
     func testFetchRule() {
         
         let index = contentBlocker?.getIndexOfRule(existingJSONRule!)
-        let rule          = contentBlocker?.fetch(index!)
+        let rule  = contentBlocker?.fetch(index!)
 
         XCTAssertNotNil(rule)
     }
