@@ -13,15 +13,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let menu = [ "Manage Whitelist", "Advanced Management", "About" ]
     
-
+    
+    /*
+     * Hide the navigation bar on the Home View only
+    */
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBarHidden = true
+    }
+    
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBarHidden = false
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -41,20 +54,33 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    /*
+     * Show new controller based on which menu item was selected
+    */
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
      
+        var segueId: String
+        
         switch indexPath.row {
             
             case 0:
-         
+                segueId = "whitelistManagementSegue"
                 break
-        
+            
+            case 1:
+                segueId = "advancedManagementSegue"
+                break
+            
+            case 2:
+                segueId = "aboutSegue"
+            
             default:
-                break
+                segueId = ""
+
         }
         
+        self.performSegueWithIdentifier(segueId, sender: nil)
     }
-
-
+    
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B336B5B41C0D4AE000F31DBB /* WhitelistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B336B5B31C0D4AE000F31DBB /* WhitelistViewController.swift */; };
+		B336B5B81C0D5A7700F31DBB /* ContentBlockerFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B336B5B71C0D5A7700F31DBB /* ContentBlockerFileManager.swift */; };
 		B37EAA391C067245002D3925 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = B37EAA381C067245002D3925 /* blockerList.json */; };
 		B37EAA3B1C067245002D3925 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37EAA3A1C067245002D3925 /* ActionRequestHandler.swift */; };
 		B37EAA3F1C067245002D3925 /* ContentBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B37EAA361C067245002D3925 /* ContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -67,6 +69,8 @@
 /* Begin PBXFileReference section */
 		1B2D18FCA77B029A10307463 /* Pods-Garden Wall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garden Wall.release.xcconfig"; path = "Pods/Target Support Files/Pods-Garden Wall/Pods-Garden Wall.release.xcconfig"; sourceTree = "<group>"; };
 		A1D5BC2C9BF39F466CD7FEEF /* Pods-Garden Wall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Garden Wall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Garden Wall/Pods-Garden Wall.debug.xcconfig"; sourceTree = "<group>"; };
+		B336B5B31C0D4AE000F31DBB /* WhitelistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhitelistViewController.swift; sourceTree = "<group>"; };
+		B336B5B71C0D5A7700F31DBB /* ContentBlockerFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlockerFileManager.swift; sourceTree = "<group>"; };
 		B37EAA361C067245002D3925 /* ContentBlocker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ContentBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B37EAA381C067245002D3925 /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
 		B37EAA3A1C067245002D3925 /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
@@ -181,10 +185,12 @@
 				B3F42BBE1C066797006D6575 /* AppDelegate.swift */,
 				B3F42BC01C066797006D6575 /* HomeViewController.swift */,
 				B3F42BC21C066797006D6575 /* Main.storyboard */,
+				B336B5B31C0D4AE000F31DBB /* WhitelistViewController.swift */,
 				B3F42BC51C066797006D6575 /* Assets.xcassets */,
 				B3F42BC71C066797006D6575 /* LaunchScreen.storyboard */,
 				B3F42BCA1C066797006D6575 /* Info.plist */,
 				B398DAAF1C0673C700F9F340 /* ContentBlockerManager.swift */,
+				B336B5B71C0D5A7700F31DBB /* ContentBlockerFileManager.swift */,
 				B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */,
 			);
 			path = "Garden Wall";
@@ -435,6 +441,8 @@
 				B398DAB21C0678EA00F9F340 /* ContentBlockerRule.swift in Sources */,
 				B3F42BC11C066797006D6575 /* HomeViewController.swift in Sources */,
 				B3F42BBF1C066797006D6575 /* AppDelegate.swift in Sources */,
+				B336B5B41C0D4AE000F31DBB /* WhitelistViewController.swift in Sources */,
+				B336B5B81C0D5A7700F31DBB /* ContentBlockerFileManager.swift in Sources */,
 				B398DAB01C0673C700F9F340 /* ContentBlockerManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
