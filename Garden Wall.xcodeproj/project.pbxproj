@@ -72,6 +72,7 @@
 		B336B5B31C0D4AE000F31DBB /* WhitelistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhitelistViewController.swift; sourceTree = "<group>"; };
 		B336B5B71C0D5A7700F31DBB /* ContentBlockerFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlockerFileManager.swift; sourceTree = "<group>"; };
 		B336B5BA1C0D681A00F31DBB /* Garden Wall.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Garden Wall.entitlements"; sourceTree = "<group>"; };
+		B336B5BC1C0EC2F200F31DBB /* ContentBlocker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ContentBlocker.entitlements; sourceTree = "<group>"; };
 		B37EAA361C067245002D3925 /* ContentBlocker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ContentBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B37EAA381C067245002D3925 /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
 		B37EAA3A1C067245002D3925 /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
@@ -149,6 +150,7 @@
 		B37EAA371C067245002D3925 /* ContentBlocker */ = {
 			isa = PBXGroup;
 			children = (
+				B336B5BC1C0EC2F200F31DBB /* ContentBlocker.entitlements */,
 				B37EAA381C067245002D3925 /* blockerList.json */,
 				B37EAA3A1C067245002D3925 /* ActionRequestHandler.swift */,
 				B37EAA3C1C067245002D3925 /* Info.plist */,
@@ -308,6 +310,12 @@
 				TargetAttributes = {
 					B37EAA351C067245002D3925 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = CWMFTH8DSM;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					B3F42BBA1C066797006D6575 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -518,10 +526,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = ContentBlocker/ContentBlocker.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ContentBlocker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.francisbailey.Garden-Wall.ContentBlocker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -530,10 +542,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = ContentBlocker/ContentBlocker.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ContentBlocker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.francisbailey.Garden-Wall.ContentBlocker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

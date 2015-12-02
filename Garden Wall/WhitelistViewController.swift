@@ -12,7 +12,8 @@ import UIKit
 class WhitelistViewController: UITableViewController {
     
 
-    var ruleManager: ContentBlockerRuleManager!
+    var fileManager: ContentBlockerFileManager = ContentBlockerFileManager.sharedInstance
+    var ruleManager: ContentBlockerRuleManager?
     var rules: [ContentBlockerRule]?
     
     
@@ -27,9 +28,10 @@ class WhitelistViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let file = ContentBlockerFileManager.readJSONFile("blockerList")
-        ruleManager = ContentBlockerRuleManager(json: file!)
-        rules = ruleManager.fetchAll()
+        if let file = fileManager.readJSONFile("blockerList") {
+            ruleManager = ContentBlockerRuleManager(json: file)
+            rules = ruleManager?.fetchAll()
+        }
     }
     
     
@@ -45,7 +47,12 @@ class WhitelistViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return ruleManager.count()
+       
+        if let count = ruleManager?.count() {
+            return count
+        }
+        
+        return 0
     }
     
     

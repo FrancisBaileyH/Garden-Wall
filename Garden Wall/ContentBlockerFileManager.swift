@@ -14,8 +14,34 @@ import SwiftyJSON
 class ContentBlockerFileManager {
     
     
+    private var groupUrl: NSURL
+    private var fileManager: NSFileManager
     
-    static func readJSONFile(filename: String) -> JSON? {
+    
+    static let sharedInstance = ContentBlockerFileManager()
+    
+    
+    
+    init() {
+        
+        fileManager = NSFileManager.defaultManager()
+        groupUrl    = fileManager.containerURLForSecurityApplicationGroupIdentifier("group.com.fbailey.garden-wall")!
+    }
+    
+    
+    
+    
+    func readJSONFile(filename: String) -> JSON? {
+        
+        NSLog("\(groupUrl)")
+        
+        let enumerator: NSDirectoryEnumerator? = fileManager.enumeratorAtURL(groupUrl, includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions(), errorHandler: nil)
+        
+        while let element = enumerator?.nextObject() as? String {
+            NSLog(element)
+        }
+        
+        
         
         if let path = NSBundle.mainBundle().pathForResource(filename, ofType: "json") {
         
@@ -30,7 +56,7 @@ class ContentBlockerFileManager {
     }
     
     
-    static func writeJSONFile(filename: String, fileContents: String) -> Bool {
+    func writeJSONFile(filename: String, fileContents: String) -> Bool {
         
         if let path = NSBundle.mainBundle().pathForResource(filename, ofType: "json") {
         
