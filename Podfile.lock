@@ -1,12 +1,15 @@
 PODS:
+  - GBVersionTracking (1.3.1)
   - ObjectMapper (1.0.1)
   - SwiftyJSON (2.3.1)
 
 DEPENDENCIES:
+  - GBVersionTracking (~> 1.3.1)
   - ObjectMapper (~> 1.0.1)
   - SwiftyJSON (~> 2.3.1)
 
 SPEC CHECKSUMS:
+  GBVersionTracking: 0214439bf789fc3825cd8c88685e41c076bb2308
   ObjectMapper: 98524bac0dca46c6b3d5ee02cd410fc700ec6ce2
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
 

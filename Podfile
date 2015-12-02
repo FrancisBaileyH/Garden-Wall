@@ -6,6 +6,7 @@ use_frameworks!
 target 'Garden Wall' do
     pod 'SwiftyJSON', '~> 2.3.1'
     pod 'ObjectMapper', '~> 1.0.1'
+    pod 'GBVersionTracking', '~>1.3.1'
 end
 
 target 'Garden WallTests' do
