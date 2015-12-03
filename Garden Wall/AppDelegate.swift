@@ -65,11 +65,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let blockerListURL  = NSURL(string: "blockerList.json", relativeToURL: groupURL)
         let blockerListPath = NSBundle.mainBundle().pathForResource("blockerList", ofType: "json")
         
-        let coordinator = NSFileCoordinator()
-
-        
         do {
-            
+
             if GBVersionTracking.isFirstLaunchEver() {
                 fileManager.createFileAtPath((whitelistURL?.path)!, contents: nil, attributes: nil)
             }
