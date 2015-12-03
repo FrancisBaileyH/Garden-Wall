@@ -28,7 +28,8 @@ class WhitelistViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let file = fileManager.readJSONFile("blockerList") {
+        if let file = fileManager.readJSONFile("whitelist.json") {
+
             ruleManager = ContentBlockerRuleManager(data: file)
             rules = ruleManager?.fetchAll()
         }

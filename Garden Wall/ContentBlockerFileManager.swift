@@ -42,15 +42,6 @@ class ContentBlockerFileManager {
     
     func readJSONFile(filename: String) -> NSData? {
         
-        NSLog("\(groupUrl)")
-        
-        let enumerator: NSDirectoryEnumerator? = fileManager.enumeratorAtURL(groupUrl, includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions(), errorHandler: nil)
-        
-        while let element = enumerator?.nextObject() as? String {
-            NSLog(element)
-        }
-        
-        
         if let path = NSURL(string: filename, relativeToURL: groupUrl) {
         
             return NSData(contentsOfURL: path)
