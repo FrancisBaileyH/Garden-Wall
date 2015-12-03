@@ -316,7 +316,7 @@
         <!--About View Controller-->
         <scene sceneID="n6Q-kl-Rag">
             <objects>
-                <viewController id="GDI-dQ-hEW" userLabel="About View Controller" sceneMemberID="viewController">
+                <viewController title="About Garden Wall" id="GDI-dQ-hEW" userLabel="About View Controller" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Eb1-QZ-fN6"/>
                         <viewControllerLayoutGuide type="bottom" id="lKZ-ED-hRX"/>
@@ -332,10 +332,10 @@
             </objects>
             <point key="canvasLocation" x="358" y="1194"/>
         </scene>
-        <!--View Controller-->
+        <!--Advanced Configuration-->
         <scene sceneID="cU4-wa-uxn">
             <objects>
-                <viewController id="Ffi-lB-Pkf" sceneMemberID="viewController">
+                <viewController title="Advanced Configuration" id="Ffi-lB-Pkf" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hEJ-vC-8JI"/>
                         <viewControllerLayoutGuide type="bottom" id="kzq-yY-WQu"/>
@@ -351,10 +351,10 @@
             </objects>
             <point key="canvasLocation" x="1191" y="1194"/>
         </scene>
-        <!--Whitelist View Controller-->
+        <!--Whitelisted Websites-->
         <scene sceneID="2zs-me-tgu">
             <objects>
-                <tableViewController id="JJO-lb-r1i" customClass="WhitelistViewController" customModule="Garden_Wall" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Whitelisted Websites" id="JJO-lb-r1i" customClass="WhitelistViewController" customModule="Garden_Wall" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SGn-Vg-j5A">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -385,10 +385,10 @@
             </objects>
             <point key="canvasLocation" x="1191" y="424"/>
         </scene>
-        <!--View Controller-->
+        <!--Whitelist Ads-->
         <scene sceneID="tkl-Lw-Pt0">
             <objects>
-                <viewController id="JSF-1H-nRP" sceneMemberID="viewController">
+                <viewController title="Whitelist Ads" id="JSF-1H-nRP" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tc0-4G-mYg"/>
                         <viewControllerLayoutGuide type="bottom" id="pox-WA-opm"/>

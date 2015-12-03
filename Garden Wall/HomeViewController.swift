@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    let menu = [ "Manage Whitelist", "Advanced Management", "About" ]
+    let menu = [ "Manage Whitelisted Websites", "Advanced Configuration", "About" ]
     
     
     /*
@@ -48,7 +48,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = UITableViewCell()
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         cell.textLabel!.text = menu[indexPath.row]
-        
+
         
         return cell
     }
@@ -59,7 +59,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     */
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
      
-        var segueId: String
+        var segueId: String?
         
         switch indexPath.row {
             
@@ -75,11 +75,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 segueId = "aboutSegue"
             
             default:
-                segueId = ""
+                segueId = nil
 
         }
         
-        self.performSegueWithIdentifier(segueId, sender: nil)
+        if let id = segueId {
+            self.performSegueWithIdentifier(id, sender: nil)
+        }
     }
     
 }
