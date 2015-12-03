@@ -40,7 +40,7 @@ class ContentBlockerFileManager {
     }
     
     
-    func readJSONFile(filename: String) -> NSData? {
+    func read(filename: String) -> NSData? {
         
         if let path = NSURL(string: filename, relativeToURL: groupUrl) {
         
@@ -51,7 +51,7 @@ class ContentBlockerFileManager {
     }
     
     
-    func writeJSONFile(filename: String, fileContents: String) -> Bool {
+    func write(filename: String, fileContents: String) -> Bool {
         
         if let path = NSURL(string: filename, relativeToURL: groupUrl) {
         
