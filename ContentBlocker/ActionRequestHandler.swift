@@ -26,7 +26,7 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
         }
         else {
         
-            attachment = NSItemProvider(contentsOfURL: NSBundle.mainBundle().URLForResource("blockerList", withExtension: "json"))!
+            attachment = NSItemProvider(contentsOfURL: NSBundle.mainBundle().URLForResource("defaultList", withExtension: "json"))!
         }
         
         
