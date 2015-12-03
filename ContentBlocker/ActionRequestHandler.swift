@@ -9,11 +9,27 @@
 import UIKit
 import MobileCoreServices
 
+
 class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
 
     func beginRequestWithExtensionContext(context: NSExtensionContext) {
-        let attachment = NSItemProvider(contentsOfURL: NSBundle.mainBundle().URLForResource("blockerList", withExtension: "json"))!
-    
+        
+        var attachment: NSItemProvider
+        let fileManager = ContentBlockerFileManager.sharedInstance
+        
+        let url = NSURL(string: "blockerList.json", relativeToURL: fileManager.getSharedDirectoryURL())
+        
+        
+        if fileManager.fileExists("blockerList.json") && url != nil  {
+             
+            attachment = NSItemProvider(contentsOfURL: url)!
+        }
+        else {
+        
+            attachment = NSItemProvider(contentsOfURL: NSBundle.mainBundle().URLForResource("blockerList", withExtension: "json"))!
+        }
+        
+        
         let item = NSExtensionItem()
         item.attachments = [attachment]
     

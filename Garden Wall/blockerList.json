@@ -1,0 +1,29 @@
+ [
+    {
+        "action": {
+            "type": "block"
+        },
+        "trigger": {
+            "url-filter": "webkit.org/images/icon-gold.png"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": ".*",
+            "resource-type": ["image", "style-sheet"],
+            "unless-domain": ["reputable-content-server.com"]
+        },
+        "action": {
+            "type": "block-cookies"
+        }
+    },
+    {
+        "trigger": {
+            "url-filter": "evil-tracker\\.js"
+        },
+        "action": {
+            "type": "block"
+        }
+    }
+  
+  ]

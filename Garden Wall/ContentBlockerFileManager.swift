@@ -29,6 +29,17 @@ class ContentBlockerFileManager {
     }
     
     
+    func fileExists(filename: String) -> Bool {
+        
+        if let url = NSURL(string: filename, relativeToURL: groupUrl) {
+        
+            if url.checkResourceIsReachableAndReturnError(nil) {
+                return true
+            }
+        }
+        
+        return false
+    }
     
     
     func readJSONFile(filename: String) -> JSON? {
@@ -42,10 +53,9 @@ class ContentBlockerFileManager {
         }
         
         
+        if let path = NSURL(string: filename, relativeToURL: groupUrl) {
         
-        if let path = NSBundle.mainBundle().pathForResource(filename, ofType: "json") {
-        
-            let jsonData = NSData(contentsOfFile: path)
+            let jsonData = NSData(contentsOfURL: path)
         
             if let data = jsonData {
                 return JSON(data)
@@ -58,16 +68,42 @@ class ContentBlockerFileManager {
     
     func writeJSONFile(filename: String, fileContents: String) -> Bool {
         
-        if let path = NSBundle.mainBundle().pathForResource(filename, ofType: "json") {
+        if let path = NSURL(string: filename, relativeToURL: groupUrl) {
         
             do {
-                try fileContents.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding)
+                try fileContents.writeToURL(path, atomically: false, encoding: NSUTF8StringEncoding)
                 return true
             }
             catch {    }
         }
     
         return false
+    }
+    
+    
+    func getSharedDirectoryURL() -> NSURL {
+        return groupUrl
+    }
+    
+    
+    /*
+     * Initialize shared directory files if they do not exist yet
+     * This includes a whitelist file & a blockerList file
+    */
+    func initializeSharedDirectoryFiles() {
+        
+        let whitelistURL = NSURL(string: "whitelist.json", relativeToURL: groupUrl)
+        let blockerListPath = NSBundle.mainBundle().pathForResource("blockerList", ofType: "json")
+        
+        let blockerListURL = NSURL(string: "blockerList.json", relativeToURL: groupUrl)
+        
+        do {
+            fileManager.createFileAtPath((whitelistURL?.path)!, contents: nil, attributes: nil)
+            try fileManager.copyItemAtPath(blockerListPath!, toPath: blockerListURL!.path!)
+        }
+        catch {
+            
+        }
     }
     
 }
