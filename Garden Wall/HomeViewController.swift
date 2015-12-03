@@ -45,12 +45,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell()
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        cell.textLabel!.text = menu[indexPath.row]
+        var cell = tableView.dequeueReusableCellWithIdentifier("MenuItemCell") as UITableViewCell?
+        
+        
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MenuItemCell")
+        }
+        
+        cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        cell!.textLabel!.text = menu[indexPath.row]
 
         
-        return cell
+        return cell!
     }
     
     
