@@ -23,6 +23,11 @@ class ContentBlockerRuleManager {
     }
     
     
+    init(data: NSData) {
+        self.json = JSON(data)
+    }
+    
+    
     /*
      * Create a rule if the rule does not exist yet, otherwise return false
     */

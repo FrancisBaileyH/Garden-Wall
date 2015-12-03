@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GBVersionTracking
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        GBVersionTracking.track()
+        initializeSharedDirectoryFiles()
+        
+        
         return true
     }
 
@@ -39,6 +46,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    
+    
+    /*
+    * Initialize shared directory files if they do not exist yet
+    * This includes a whitelist file & a blockerList file
+    *
+    * @TODO
+    * Add lock to ensure writing/reading of files occurs synchronously
+    */
+    func initializeSharedDirectoryFiles() {
+        
+        let fileManager     = NSFileManager.defaultManager()
+        let groupURL        = ContentBlockerFileManager.sharedInstance.getSharedDirectoryURL()
+        let whitelistURL    = NSURL(string: "whitelist.json", relativeToURL: groupURL)
+        let blockerListURL  = NSURL(string: "blockerList.json", relativeToURL: groupURL)
+        let blockerListPath = NSBundle.mainBundle().pathForResource("blockerList", ofType: "json")
+        
+        let coordinator = NSFileCoordinator()
+
+        
+        do {
+            
+            if GBVersionTracking.isFirstLaunchEver() {
+                fileManager.createFileAtPath((whitelistURL?.path)!, contents: nil, attributes: nil)
+            }
+            if GBVersionTracking.isFirstLaunchForBuild() {
+                try fileManager.copyItemAtPath(blockerListPath!, toPath: blockerListURL!.path!)
+            }
+        }
+        catch {
+            
+        }
     }
 
 

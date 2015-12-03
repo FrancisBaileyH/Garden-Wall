@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
-
 
 
 class ContentBlockerFileManager {
@@ -42,7 +40,7 @@ class ContentBlockerFileManager {
     }
     
     
-    func readJSONFile(filename: String) -> JSON? {
+    func readJSONFile(filename: String) -> NSData? {
         
         NSLog("\(groupUrl)")
         
@@ -55,11 +53,7 @@ class ContentBlockerFileManager {
         
         if let path = NSURL(string: filename, relativeToURL: groupUrl) {
         
-            let jsonData = NSData(contentsOfURL: path)
-        
-            if let data = jsonData {
-                return JSON(data)
-            }
+            return NSData(contentsOfURL: path)
         }
         
         return nil
@@ -85,25 +79,5 @@ class ContentBlockerFileManager {
         return groupUrl
     }
     
-    
-    /*
-     * Initialize shared directory files if they do not exist yet
-     * This includes a whitelist file & a blockerList file
-    */
-    func initializeSharedDirectoryFiles() {
-        
-        let whitelistURL = NSURL(string: "whitelist.json", relativeToURL: groupUrl)
-        let blockerListPath = NSBundle.mainBundle().pathForResource("blockerList", ofType: "json")
-        
-        let blockerListURL = NSURL(string: "blockerList.json", relativeToURL: groupUrl)
-        
-        do {
-            fileManager.createFileAtPath((whitelistURL?.path)!, contents: nil, attributes: nil)
-            try fileManager.copyItemAtPath(blockerListPath!, toPath: blockerListURL!.path!)
-        }
-        catch {
-            
-        }
-    }
     
 }
