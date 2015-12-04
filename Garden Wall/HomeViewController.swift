@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import GBVersionTracking
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    let menu = [ "Manage Whitelisted Websites", "Advanced Configuration", "About" ]
+    @IBOutlet weak var buildLabel: UILabel!
+    
+    
+    
+    let menu = [ ["Enable Adblocking"], ["Manage Whitelisted Websites", "Advanced Configuration", "About"] ]
     
     
     /*
@@ -31,6 +36,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        buildLabel.text = "Version " + GBVersionTracking.currentVersion()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,17 +45,39 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 40.0
+    }
+    
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return menu.count
     }
     
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return menu[section].count
+    }
+    
+    
+    /*
+     * Initialize Menu Item Cells
+    */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
 
         let cell = tableView.dequeueReusableCellWithIdentifier("MenuItemCell", forIndexPath: indexPath)
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        cell.textLabel!.text = menu[indexPath.row]
+        
+        
+        if indexPath.section == 0 && indexPath.row == 0 {
+            let cellSwitch = UISwitch(frame: CGRectZero) as UISwitch
+            cell.accessoryView = cellSwitch
+        }
+        else {
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        }
+        
+        cell.textLabel!.text = menu[indexPath.section][indexPath.row]
 
         
         return cell
@@ -60,30 +89,51 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     */
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
      
+        
+        switch indexPath.section {
+            
+            case 0:
+                
+                break;
+            
+            case 1:
+                handleMenuSectionAction(indexPath.row)
+            break
+            
+            default:
+            
+            break
+            
+        }
+    }
+    
+    
+    func handleMenuSectionAction(row: Int) {
+        
         var segueId: String?
         
-        switch indexPath.row {
+        switch row {
             
             case 0:
                 segueId = "whitelistManagementSegue"
-                break
+            break
             
             case 1:
                 segueId = "advancedManagementSegue"
-                break
+            break
             
             case 2:
                 segueId = "aboutSegue"
+            break
             
             default:
                 segueId = nil
-
+            
         }
         
         if let id = segueId {
             self.performSegueWithIdentifier(id, sender: nil)
         }
     }
-    
 }
 
