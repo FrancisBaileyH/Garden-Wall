@@ -40,11 +40,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         buildLabel.text = "Version " + GBVersionTracking.currentVersion()
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     
+    
+    /*
+     * Configure basic table layout and view settings
+    */
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 40.0
     }
@@ -108,6 +113,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    /*
+     * Handle a menu item selection and segue to corresponding view
+    */
     func handleMenuSectionAction(row: Int) {
         
         var segueId: String?

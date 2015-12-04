@@ -289,7 +289,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="JSF-1H-nRP" kind="presentation" identifier="whitelistAddSegue" id="QzI-GD-hW5"/>
+                        <segue destination="EHv-9t-2rt" kind="presentation" identifier="whitelistAddSegue" id="QzI-GD-hW5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q06-9X-yKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -299,7 +299,7 @@
         <!--Whitelist Ads-->
         <scene sceneID="tkl-Lw-Pt0">
             <objects>
-                <viewController title="Whitelist Ads" id="JSF-1H-nRP" sceneMemberID="viewController">
+                <viewController title="Whitelist Ads" id="JSF-1H-nRP" customClass="AddWhitelistItemViewController" customModule="Garden_Wall" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tc0-4G-mYg"/>
                         <viewControllerLayoutGuide type="bottom" id="pox-WA-opm"/>
@@ -310,8 +310,28 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="gUn-EO-65Z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dca-0w-oTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2959.5" y="424"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ehw-Ke-RaN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EHv-9t-2rt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SUx-8b-FlF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JSF-1H-nRP" kind="relationship" relationship="rootViewController" id="JRZ-c8-lkl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RJa-g9-c7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2041.5" y="424"/>
         </scene>
