@@ -51,11 +51,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
      * Configure basic table layout and view settings
     */
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 40.0
+        
+        return 40
     }
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine;
+        
         return menu.count
     }
     
@@ -70,11 +74,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-
         let cell = tableView.dequeueReusableCellWithIdentifier("MenuItemCell", forIndexPath: indexPath)
         
         
         if indexPath.section == 0 && indexPath.row == 0 {
+        
             let cellSwitch = UISwitch(frame: CGRectZero) as UISwitch
             cell.accessoryView = cellSwitch
         }

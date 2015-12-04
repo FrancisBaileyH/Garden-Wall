@@ -50,6 +50,15 @@ class WhitelistViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
         if let count = ruleManager?.count() {
+            
+            if count == 0 {
+                setNoDataLabel(tableView)
+            }
+            else {
+                tableView.backgroundView = nil
+                tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+            }
+            
             return count
         }
         
@@ -64,6 +73,19 @@ class WhitelistViewController: UITableViewController {
         cell.textLabel?.text = rules?[indexPath.row].trigger.urlFilter
         
         return cell
+    }
+    
+    
+    func setNoDataLabel(tableView: UITableView) {
+        
+        let message = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
+        
+        message.text = "No websites whitelisted. Press the plus sign at the top right to add a website to the whitelist."
+        message.textColor = UIColor.blackColor()
+        message.textAlignment = NSTextAlignment.Center
+        message.numberOfLines = 4
+        tableView.backgroundView = message
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
     
     

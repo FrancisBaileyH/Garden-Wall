@@ -7,10 +7,19 @@
 //
 
 import UIKit
+import SwiftForms
 
 
-class AddWhitelistItemViewController: UIViewController {
 
+class AddWhitelistItemViewController: FormViewController {
+
+    
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.initializeForm()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +30,7 @@ class AddWhitelistItemViewController: UIViewController {
         
         self.navigationItem.leftBarButtonItem = cancelButton
         self.navigationItem.rightBarButtonItem = saveButton
+        
     }
     
     
@@ -42,6 +52,28 @@ class AddWhitelistItemViewController: UIViewController {
     */
     func saveButtonPressed(sender: AnyObject) {
         
+    }
+    
+    
+    /*
+     * Insantiate the form object and generate fields to display
+    */
+    func initializeForm() {
+        
+        let form       = FormDescriptor()
+        let section    = FormSectionDescriptor()
+        let websiteUrl = FormRowDescriptor(tag: "website", rowType: FormRowType.URL, title: "URL")
+        
+        websiteUrl.configuration[FormRowDescriptor.Configuration.CellConfiguration] = [
+            "textField.placeholder" : "e.g. www.example.com",
+            "textField.textAlignment" : NSTextAlignment.Right.rawValue
+        ]
+        
+        section.addRow(websiteUrl)
+        
+        form.sections = [ section ]
+        
+        self.form = form
     }
     
 

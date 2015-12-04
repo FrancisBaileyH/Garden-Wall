@@ -104,16 +104,15 @@
                                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JCE-7t-U7h">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="JCE-7t-U7h">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuItemCell" id="uHx-iD-hsF">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuItemCell" id="wFE-ma-bu3">
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uHx-iD-hsF" id="wNv-qC-hO7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wFE-ma-bu3" id="hz1-NE-aWD">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <animations/>
                                                 </tableViewCellContentView>
@@ -146,12 +145,12 @@
                                         <exclude reference="JCE-7t-U7h"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <exclude reference="BJl-FA-eJv"/>
+                                        <exclude reference="fPd-9s-9qB"/>
                                         <exclude reference="8YR-MH-jpY"/>
                                         <exclude reference="Eb8-W5-CL9"/>
                                         <exclude reference="OIE-Rd-cT6"/>
                                         <exclude reference="QTG-Mw-uva"/>
-                                        <exclude reference="BJl-FA-eJv"/>
-                                        <exclude reference="fPd-9s-9qB"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -160,12 +159,12 @@
                                         <include reference="JCE-7t-U7h"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="BJl-FA-eJv"/>
+                                        <include reference="fPd-9s-9qB"/>
                                         <include reference="8YR-MH-jpY"/>
                                         <include reference="Eb8-W5-CL9"/>
                                         <include reference="OIE-Rd-cT6"/>
                                         <include reference="QTG-Mw-uva"/>
-                                        <include reference="BJl-FA-eJv"/>
-                                        <include reference="fPd-9s-9qB"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -233,7 +232,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lKZ-ED-hRX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bc7-hc-Q0p">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -266,74 +265,61 @@
         <scene sceneID="2zs-me-tgu">
             <objects>
                 <tableViewController title="Whitelisted Websites" id="JJO-lb-r1i" customClass="WhitelistViewController" customModule="Garden_Wall" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SGn-Vg-j5A">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="SGn-Vg-j5A">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WhitelistItemCell" id="BRn-Wq-fLb">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BRn-Wq-fLb" id="ElR-9p-Qj2">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
-                                </tableViewCellContentView>
-                                <animations/>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
                             <outlet property="dataSource" destination="JJO-lb-r1i" id="X3B-yb-TKq"/>
                             <outlet property="delegate" destination="JJO-lb-r1i" id="EQh-nv-Eyl"/>
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="EHv-9t-2rt" kind="presentation" identifier="whitelistAddSegue" id="QzI-GD-hW5"/>
+                        <segue destination="j78-31-7Bl" kind="presentation" identifier="whitelistAddSegue" id="W2B-7g-DUG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q06-9X-yKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1191" y="424"/>
         </scene>
-        <!--Whitelist Ads-->
-        <scene sceneID="tkl-Lw-Pt0">
+        <!--Add Whitelist Item View Controller-->
+        <scene sceneID="1kI-nY-Gr4">
             <objects>
-                <viewController title="Whitelist Ads" id="JSF-1H-nRP" customClass="AddWhitelistItemViewController" customModule="Garden_Wall" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Tc0-4G-mYg"/>
-                        <viewControllerLayoutGuide type="bottom" id="pox-WA-opm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nDi-vx-v82">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <tableViewController id="23m-0V-Dxi" customClass="AddWhitelistItemViewController" customModule="Garden_Wall" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="FHj-n4-5DB">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="gUn-EO-65Z"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dca-0w-oTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="23m-0V-Dxi" id="cSa-YZ-Rcg"/>
+                            <outlet property="delegate" destination="23m-0V-Dxi" id="04j-sH-kEK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="PnW-Sb-sFj"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ash-Dn-JEU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2959.5" y="424"/>
+            <point key="canvasLocation" x="2785.5" y="424"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Ehw-Ke-RaN">
+        <scene sceneID="Cn9-Kf-hJg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EHv-9t-2rt" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j78-31-7Bl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SUx-8b-FlF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IB9-2C-t11">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="JSF-1H-nRP" kind="relationship" relationship="rootViewController" id="JRZ-c8-lkl"/>
+                        <segue destination="23m-0V-Dxi" kind="relationship" relationship="rootViewController" id="cpl-q9-Fyb"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RJa-g9-c7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VYQ-70-ysp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2041.5" y="424"/>
+            <point key="canvasLocation" x="1963.5" y="424"/>
         </scene>
     </scenes>
 </document>
