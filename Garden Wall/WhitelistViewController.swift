@@ -120,8 +120,6 @@ class WhitelistViewController: UITableViewController {
     }
     
     
-    
-    
     /*
      * Set a background message on a tableview
     */

@@ -56,7 +56,22 @@ class AddWhitelistItemViewController: FormViewController {
         let formData = self.form.formValues()
 
         if let url = formData["url"] as? String {
-
+            
+            if self.saveWhitelistItem(url) {
+                self.cancelButtonPressed(sender)
+            }
+        }
+    }
+    
+    
+    func saveWhitelistItem(url: String) -> Bool {
+        
+        if NSURL(string: url) == nil {
+            
+            self.showAlert("Invalid URL.")
+        }
+        else {
+            
             let rule   = WhitelistRuleFactory.build(url)
             let result = ruleManager?.create(rule)
             
@@ -64,10 +79,13 @@ class AddWhitelistItemViewController: FormViewController {
                 self.showAlert("Whitelisted site already added.")
             }
             else {
-                self.cancelButtonPressed(sender)
+                return true
             }
         }
+        
+        return false
     }
+    
     
     
     /*
