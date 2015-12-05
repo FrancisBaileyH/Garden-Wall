@@ -1,0 +1,10 @@
+[
+    {
+        "action": {
+            "type": "ignore-previous-rules"
+        },
+        "trigger": {
+            "if-domain" : "https?:\/\/www.test.com"
+        }
+    }
+]

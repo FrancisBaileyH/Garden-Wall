@@ -20,18 +20,18 @@ class WhitelistViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         
         let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addButtonPressed:")
-
         self.navigationItem.rightBarButtonItem = addButton
+        
+        rules = ruleManager?.fetchAll()
+        self.tableView.reloadData()
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let file = fileManager.read("whitelist.json") {
+        if ruleManager == nil, let file = fileManager.read("whitelist.json") {
 
             ruleManager = ContentBlockerRuleManager(data: file)
-            rules = ruleManager?.fetchAll()
         }
     }
     
@@ -67,10 +67,10 @@ class WhitelistViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+
         let cell = UITableViewCell()
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        cell.textLabel?.text = rules?[indexPath.row].trigger.urlFilter
+        cell.textLabel?.text = rules?[indexPath.row].trigger.ifDomain
         
         return cell
     }
@@ -86,6 +86,31 @@ class WhitelistViewController: UITableViewController {
         message.numberOfLines = 4
         tableView.backgroundView = message
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+    }
+    
+    
+    /*
+     * Pass the ruleManager class to the presented view controller
+    */
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "whitelistAddSegue" {
+
+            let navController = segue.destinationViewController as! UINavigationController
+            let controller    = navController.topViewController as! AddWhitelistItemViewController
+            
+            controller.ruleManager = self.ruleManager
+        }
+    }
+    
+    
+    /*
+     * Our code was deinitialized so we'll write the JSON back to the file
+     * This saves us from writing it each time a change is made, and instead 
+     * writes only when we exit this view
+    */
+    deinit {
+        
     }
     
     

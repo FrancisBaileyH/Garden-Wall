@@ -12,12 +12,16 @@
 		B336B5BD1C1027F500F31DBB /* ContentBlockerFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B336B5B71C0D5A7700F31DBB /* ContentBlockerFileManager.swift */; };
 		B336B5BF1C102C4B00F31DBB /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = B336B5BE1C102C4B00F31DBB /* blockerList.json */; };
 		B336B5D11C1122EF00F31DBB /* AddWhitelistItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B336B5D01C1122EF00F31DBB /* AddWhitelistItemViewController.swift */; };
+		B336B5D31C1150C400F31DBB /* WhitelistRuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B336B5D21C1150C400F31DBB /* WhitelistRuleFactory.swift */; };
+		B336B5D51C11527C00F31DBB /* WhitelistRuleFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B336B5D41C11527C00F31DBB /* WhitelistRuleFactoryTests.swift */; };
+		B336B5D61C11529200F31DBB /* WhitelistRuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B336B5D21C1150C400F31DBB /* WhitelistRuleFactory.swift */; };
+		B336B5D81C11538C00F31DBB /* TestWhitelist.json in Resources */ = {isa = PBXBuildFile; fileRef = B336B5D71C11538C00F31DBB /* TestWhitelist.json */; };
 		B37EAA391C067245002D3925 /* defaultList.json in Resources */ = {isa = PBXBuildFile; fileRef = B37EAA381C067245002D3925 /* defaultList.json */; };
 		B37EAA3B1C067245002D3925 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37EAA3A1C067245002D3925 /* ActionRequestHandler.swift */; };
 		B37EAA3F1C067245002D3925 /* ContentBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B37EAA361C067245002D3925 /* ContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B398DAB01C0673C700F9F340 /* ContentBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAAF1C0673C700F9F340 /* ContentBlockerManager.swift */; };
+		B398DAB01C0673C700F9F340 /* ContentBlockerRuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAAF1C0673C700F9F340 /* ContentBlockerRuleManager.swift */; };
 		B398DAB21C0678EA00F9F340 /* ContentBlockerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */; };
-		B3DFA07A1C0698DF00A89BC6 /* ContentBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAAF1C0673C700F9F340 /* ContentBlockerManager.swift */; };
+		B3DFA07A1C0698DF00A89BC6 /* ContentBlockerRuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAAF1C0673C700F9F340 /* ContentBlockerRuleManager.swift */; };
 		B3DFA07B1C0698EA00A89BC6 /* ContentBlockerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */; };
 		B3DFA07F1C06999200A89BC6 /* ContentBlockerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DFA07E1C06999200A89BC6 /* ContentBlockerTests.swift */; };
 		B3DFA0811C069B6700A89BC6 /* TestContentBlocker.json in Resources */ = {isa = PBXBuildFile; fileRef = B3DFA0801C069B6700A89BC6 /* TestContentBlocker.json */; };
@@ -78,11 +82,14 @@
 		B336B5BC1C0EC2F200F31DBB /* ContentBlocker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ContentBlocker.entitlements; sourceTree = "<group>"; };
 		B336B5BE1C102C4B00F31DBB /* blockerList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
 		B336B5D01C1122EF00F31DBB /* AddWhitelistItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWhitelistItemViewController.swift; sourceTree = "<group>"; };
+		B336B5D21C1150C400F31DBB /* WhitelistRuleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhitelistRuleFactory.swift; sourceTree = "<group>"; };
+		B336B5D41C11527C00F31DBB /* WhitelistRuleFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhitelistRuleFactoryTests.swift; sourceTree = "<group>"; };
+		B336B5D71C11538C00F31DBB /* TestWhitelist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestWhitelist.json; sourceTree = "<group>"; };
 		B37EAA361C067245002D3925 /* ContentBlocker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ContentBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B37EAA381C067245002D3925 /* defaultList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defaultList.json; sourceTree = "<group>"; };
 		B37EAA3A1C067245002D3925 /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
 		B37EAA3C1C067245002D3925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B398DAAF1C0673C700F9F340 /* ContentBlockerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlockerManager.swift; sourceTree = "<group>"; };
+		B398DAAF1C0673C700F9F340 /* ContentBlockerRuleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlockerRuleManager.swift; sourceTree = "<group>"; };
 		B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlockerRule.swift; sourceTree = "<group>"; };
 		B3DFA07E1C06999200A89BC6 /* ContentBlockerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlockerTests.swift; sourceTree = "<group>"; };
 		B3DFA0801C069B6700A89BC6 /* TestContentBlocker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestContentBlocker.json; sourceTree = "<group>"; };
@@ -200,7 +207,8 @@
 				B3F42BC51C066797006D6575 /* Assets.xcassets */,
 				B3F42BC71C066797006D6575 /* LaunchScreen.storyboard */,
 				B3F42BCA1C066797006D6575 /* Info.plist */,
-				B398DAAF1C0673C700F9F340 /* ContentBlockerManager.swift */,
+				B398DAAF1C0673C700F9F340 /* ContentBlockerRuleManager.swift */,
+				B336B5D21C1150C400F31DBB /* WhitelistRuleFactory.swift */,
 				B336B5B71C0D5A7700F31DBB /* ContentBlockerFileManager.swift */,
 				B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */,
 				B336B5BE1C102C4B00F31DBB /* blockerList.json */,
@@ -211,10 +219,12 @@
 		B3F42BD21C066797006D6575 /* Garden WallTests */ = {
 			isa = PBXGroup;
 			children = (
+				B336B5D41C11527C00F31DBB /* WhitelistRuleFactoryTests.swift */,
 				B3DFA07E1C06999200A89BC6 /* ContentBlockerTests.swift */,
 				B3F42BD31C066797006D6575 /* Garden_WallTests.swift */,
 				B3F42BD51C066797006D6575 /* Info.plist */,
 				B3DFA0801C069B6700A89BC6 /* TestContentBlocker.json */,
+				B336B5D71C11538C00F31DBB /* TestWhitelist.json */,
 			);
 			path = "Garden WallTests";
 			sourceTree = "<group>";
@@ -390,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3DFA0811C069B6700A89BC6 /* TestContentBlocker.json in Resources */,
+				B336B5D81C11538C00F31DBB /* TestWhitelist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,11 +477,12 @@
 			files = (
 				B336B5D11C1122EF00F31DBB /* AddWhitelistItemViewController.swift in Sources */,
 				B398DAB21C0678EA00F9F340 /* ContentBlockerRule.swift in Sources */,
+				B336B5D31C1150C400F31DBB /* WhitelistRuleFactory.swift in Sources */,
 				B3F42BC11C066797006D6575 /* HomeViewController.swift in Sources */,
 				B3F42BBF1C066797006D6575 /* AppDelegate.swift in Sources */,
 				B336B5B41C0D4AE000F31DBB /* WhitelistViewController.swift in Sources */,
 				B336B5B81C0D5A7700F31DBB /* ContentBlockerFileManager.swift in Sources */,
-				B398DAB01C0673C700F9F340 /* ContentBlockerManager.swift in Sources */,
+				B398DAB01C0673C700F9F340 /* ContentBlockerRuleManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,9 +490,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B336B5D51C11527C00F31DBB /* WhitelistRuleFactoryTests.swift in Sources */,
 				B3DFA07F1C06999200A89BC6 /* ContentBlockerTests.swift in Sources */,
 				B3DFA07B1C0698EA00A89BC6 /* ContentBlockerRule.swift in Sources */,
-				B3DFA07A1C0698DF00A89BC6 /* ContentBlockerManager.swift in Sources */,
+				B3DFA07A1C0698DF00A89BC6 /* ContentBlockerRuleManager.swift in Sources */,
+				B336B5D61C11529200F31DBB /* WhitelistRuleFactory.swift in Sources */,
 				B3F42BD41C066797006D6575 /* Garden_WallTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,7 +24,7 @@ class ContentBlockerRuleManager {
     
     
     init(data: NSData) {
-        self.json = JSON(data)
+        self.json = JSON(data: data)
     }
     
     
@@ -36,11 +36,15 @@ class ContentBlockerRuleManager {
         let jsonRule = convertRuleToJSON(rule)
         
         if getIndexOfRule(jsonRule) == nil {
-
-            if let _ = (self.json.arrayObject?.count) {
+            
+            if let _ = self.json.arrayObject {
                 self.json.arrayObject?.append(jsonRule.rawValue)
-                return true
             }
+            else {
+                self.json.arrayObject = [ jsonRule.rawValue ]
+            }
+            
+            return true
         }
         
         return false
@@ -98,13 +102,14 @@ class ContentBlockerRuleManager {
         
         var rules: [ContentBlockerRule] = [ContentBlockerRule]()
         var i = 0
+
         
         for (_, value):(String, JSON) in self.json {
             
             let jsonString = value.rawString()
             
             if let rule = Mapper<ContentBlockerRule>().map(jsonString) {
-                rules[i++] = rule
+                rules.insert(rule, atIndex: i++)
             }
         }
         
