@@ -113,6 +113,7 @@
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuItemCell" id="wFE-ma-bu3">
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wFE-ma-bu3" id="hz1-NE-aWD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <animations/>
                                                 </tableViewCellContentView>
@@ -127,10 +128,12 @@
                                     </tableView>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="JCE-7t-U7h" firstAttribute="top" secondItem="9bg-1O-3Ur" secondAttribute="top" constant="40" id="8YR-MH-jpY"/>
+                                    <constraint firstItem="JCE-7t-U7h" firstAttribute="top" secondItem="9bg-1O-3Ur" secondAttribute="top" constant="40" id="8YR-MH-jpY">
+                                        <variation key="widthClass=compact" constant="0.0"/>
+                                    </constraint>
                                     <constraint firstItem="ohw-Wo-kdw" firstAttribute="centerX" secondItem="9bg-1O-3Ur" secondAttribute="centerX" id="BJl-FA-eJv"/>
                                     <constraint firstItem="JCE-7t-U7h" firstAttribute="leading" secondItem="9bg-1O-3Ur" secondAttribute="leading" id="Eb8-W5-CL9"/>
                                     <constraint firstAttribute="trailing" secondItem="JCE-7t-U7h" secondAttribute="trailing" id="OIE-Rd-cT6"/>
@@ -234,8 +237,42 @@
                     <view key="view" contentMode="scaleToFill" id="bc7-hc-Q0p">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orb-vz-U0g">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                            </scrollView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lKZ-ED-hRX" firstAttribute="top" secondItem="Orb-vz-U0g" secondAttribute="bottom" id="JIg-xe-9Sz"/>
+                            <constraint firstItem="Orb-vz-U0g" firstAttribute="leading" secondItem="bc7-hc-Q0p" secondAttribute="leading" id="eEt-qJ-DRo"/>
+                            <constraint firstItem="Orb-vz-U0g" firstAttribute="top" secondItem="Eb1-QZ-fN6" secondAttribute="bottom" id="hjb-qO-c2r"/>
+                            <constraint firstAttribute="trailing" secondItem="Orb-vz-U0g" secondAttribute="trailing" id="r9U-2k-dE9"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Orb-vz-U0g"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="JIg-xe-9Sz"/>
+                                <exclude reference="eEt-qJ-DRo"/>
+                                <exclude reference="hjb-qO-c2r"/>
+                                <exclude reference="r9U-2k-dE9"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Orb-vz-U0g"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="JIg-xe-9Sz"/>
+                                <include reference="eEt-qJ-DRo"/>
+                                <include reference="hjb-qO-c2r"/>
+                                <include reference="r9U-2k-dE9"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxI-iO-Guc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -287,7 +324,8 @@
         <scene sceneID="1kI-nY-Gr4">
             <objects>
                 <tableViewController id="23m-0V-Dxi" customClass="AddWhitelistItemViewController" customModule="Garden_Wall" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="FHj-n4-5DB">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="FHj-n4-5DB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
