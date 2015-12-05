@@ -26,6 +26,7 @@ class WhitelistViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +48,10 @@ class WhitelistViewController: UITableViewController {
     }
     
     
+    /*
+     * Return the number of rules in the whitelist.json file
+     * Set the background with a message if no rules exist
+    */
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
         if let count = ruleManager?.count() {
@@ -68,14 +73,28 @@ class WhitelistViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
+        let title = rules![indexPath.row].trigger.ifDomain
+        
+        let formattedTitle = title!.stringByReplacingOccurrencesOfString(
+            WhitelistRuleFactory.whitelistItemPrefix, withString: ""
+        )
+        
         let cell = UITableViewCell()
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        cell.textLabel?.text = rules?[indexPath.row].trigger.ifDomain
+        cell.textLabel?.text = formattedTitle
         
         return cell
     }
     
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    
+    /*
+     * Set a background message on a tableview
+    */
     func setNoDataLabel(tableView: UITableView) {
         
         let message = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
@@ -105,12 +124,15 @@ class WhitelistViewController: UITableViewController {
     
     
     /*
-     * Our code was deinitialized so we'll write the JSON back to the file
+     * Our view was deinitialized so we'll write the JSON back to the file
      * This saves us from writing it each time a change is made, and instead 
      * writes only when we exit this view
     */
     deinit {
         
+        if let rawJSONString = self.ruleManager?.getRawJSONString() {
+            self.fileManager.write("whitelist.json", fileContents: rawJSONString)
+        }
     }
     
     
