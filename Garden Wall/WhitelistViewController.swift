@@ -113,7 +113,7 @@ class WhitelistViewController: UITableViewController {
         
         if section == 0 {
             
-            return "Swipe right to remove a website"
+            return "Swipe left to remove a website."
         }
         
         return nil
