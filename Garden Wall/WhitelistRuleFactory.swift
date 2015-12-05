@@ -24,7 +24,4 @@ class WhitelistRuleFactory {
         return ContentBlockerRule(action: action, trigger: trigger)
     }
     
-    
-    
-    
 }
