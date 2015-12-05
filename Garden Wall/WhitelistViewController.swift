@@ -92,6 +92,27 @@ class WhitelistViewController: UITableViewController {
     }
     
     
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    
+    /*
+     * Handle deletion action of Whitelist Item
+    */
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            
+            if let rule = self.ruleManager?.fetch(indexPath.row) {
+                self.ruleManager?.delete(rule)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+            }
+        }
+    }
+    
+    
+    
     /*
      * Set a background message on a tableview
     */
