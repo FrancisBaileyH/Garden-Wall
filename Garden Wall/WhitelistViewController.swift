@@ -103,6 +103,10 @@ class WhitelistViewController: UITableViewController {
             if let rule = self.ruleManager?.fetch(indexPath.row) {
                 self.ruleManager?.delete(rule)
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+                
+                if tableView.numberOfRowsInSection(0) < 1 {
+                    tableView.footerViewForSection(0)?.removeFromSuperview()
+                }
             }
         }
     }
@@ -111,7 +115,7 @@ class WhitelistViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         
-        if section == 0 {
+        if section == 0 && ruleManager?.count() > 0 {
             
             return "Swipe left to remove a website."
         }
