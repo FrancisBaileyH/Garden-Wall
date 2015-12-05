@@ -29,6 +29,7 @@ class WhitelistViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.allowsSelection = false
         
         if ruleManager == nil, let file = fileManager.read("whitelist.json") {
 
@@ -80,17 +81,12 @@ class WhitelistViewController: UITableViewController {
         )
         
         let cell = UITableViewCell()
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        cell.accessoryType = UITableViewCellAccessoryType.None
         cell.textLabel?.text = formattedTitle
         
         return cell
     }
-    
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
-    
+   
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
@@ -110,6 +106,19 @@ class WhitelistViewController: UITableViewController {
             }
         }
     }
+    
+    
+    
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        
+        if section == 0 {
+            
+            return "Swipe right to remove a website"
+        }
+        
+        return nil
+    }
+    
     
     
     
