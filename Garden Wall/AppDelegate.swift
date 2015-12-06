@@ -62,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let fileManager     = NSFileManager.defaultManager()
         let groupURL        = ContentBlockerFileManager.sharedInstance.getSharedDirectoryURL()
         let whitelistURL    = NSURL(string: "whitelist.json", relativeToURL: groupURL)
+        let customListURL   = NSURL(string: "customList.json", relativeToURL: groupURL)
         let blockerListURL  = NSURL(string: "blockerList.json", relativeToURL: groupURL)
         let blockerListPath = NSBundle.mainBundle().pathForResource("blockerList", ofType: "json")
         
@@ -69,6 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             if GBVersionTracking.isFirstLaunchEver() {
                 fileManager.createFileAtPath((whitelistURL?.path)!, contents: nil, attributes: nil)
+                fileManager.createFileAtPath((customListURL?.path)!, contents: nil, attributes: nil)
             }
             if GBVersionTracking.isFirstLaunchForBuild() {
                 try fileManager.copyItemAtPath(blockerListPath!, toPath: blockerListURL!.path!)
