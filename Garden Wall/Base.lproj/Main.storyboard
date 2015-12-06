@@ -218,8 +218,8 @@
                     <connections>
                         <outlet property="buildLabel" destination="ohw-Wo-kdw" id="jXu-sG-bii"/>
                         <segue destination="GDI-dQ-hEW" kind="show" identifier="aboutSegue" id="kaI-QQ-VGn"/>
-                        <segue destination="Ffi-lB-Pkf" kind="show" identifier="advancedManagementSegue" id="3fu-GV-d5n"/>
                         <segue destination="JJO-lb-r1i" kind="show" identifier="whitelistManagementSegue" id="Sww-CH-A9n"/>
+                        <segue destination="p0N-ii-nrr" kind="show" identifier="advancedManagementSegue" id="EF0-ts-Vt0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -277,26 +277,67 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxI-iO-Guc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="358" y="1194"/>
+            <point key="canvasLocation" x="358.5" y="1236"/>
         </scene>
-        <!--Advanced Configuration-->
-        <scene sceneID="cU4-wa-uxn">
+        <!--Custom Rule View Controller-->
+        <scene sceneID="5iR-ht-Ydb">
             <objects>
-                <viewController title="Advanced Configuration" id="Ffi-lB-Pkf" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hEJ-vC-8JI"/>
-                        <viewControllerLayoutGuide type="bottom" id="kzq-yY-WQu"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qcY-Yc-6sL">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <tableViewController id="p0N-ii-nrr" customClass="CustomRuleViewController" customModule="Garden_Wall" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zwg-rF-efm">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ytb-qF-C3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="OGg-vg-e0B">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OGg-vg-e0B" id="097-Yo-kik">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="p0N-ii-nrr" id="SAl-Au-eX3"/>
+                            <outlet property="delegate" destination="p0N-ii-nrr" id="tnI-jZ-o9h"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="AX6-4L-oSD" kind="presentation" identifier="addCustomRuleSegue" id="me5-2y-EEe"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bm8-Ps-3L8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1191" y="1194"/>
+            <point key="canvasLocation" x="1191" y="1241"/>
+        </scene>
+        <!--Add Custom Rule View Controller-->
+        <scene sceneID="1Or-Jw-kMV">
+            <objects>
+                <tableViewController id="doL-TD-QmJ" customClass="AddCustomRuleViewController" customModule="Garden_Wall" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="82L-LF-UrG">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aHW-zy-dct">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aHW-zy-dct" id="hBt-dq-tfE">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="doL-TD-QmJ" id="zgh-5c-E4S"/>
+                            <outlet property="delegate" destination="doL-TD-QmJ" id="m9b-8W-xrf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="T1s-Q4-eyk"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LlT-3a-LGN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2718" y="1236"/>
         </scene>
         <!--Whitelisted Websites-->
         <scene sceneID="2zs-me-tgu">
@@ -338,7 +379,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ash-Dn-JEU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2785.5" y="424"/>
+            <point key="canvasLocation" x="2718" y="424"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cn9-Kf-hJg">
@@ -357,7 +398,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VYQ-70-ysp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1963.5" y="424"/>
+            <point key="canvasLocation" x="1959" y="424"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WIw-aF-k0p">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AX6-4L-oSD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lsx-Za-ZVT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="doL-TD-QmJ" kind="relationship" relationship="rootViewController" id="BoH-cW-gAd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eFE-kw-ZPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1959" y="1241"/>
         </scene>
     </scenes>
 </document>

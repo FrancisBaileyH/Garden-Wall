@@ -1,8 +1,8 @@
 //
-//  WhitelistViewController.swift
+//  CustomRuleViewController.swift
 //  Garden Wall
 //
-//  Created by Francis Bailey on 2015-11-30.
+//  Created by Francis Bailey on 2015-12-05.
 //  Copyright © 2015 Francis Bailey. All rights reserved.
 //
 
@@ -11,23 +11,25 @@ import UIKit
 
 
 
-class WhitelistViewController: RuleListViewController {
+class CustomRuleViewController: RuleListViewController {
     
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.allowsSelection = false
         
-        if self.ruleManager == nil, let file = self.fileManager.read("whitelist.json") {
+        self.labelText = "No rules found. Press the plus sign to add a new rule."
 
-            self.ruleManager = ContentBlockerRuleManager(data: file)
+        if ruleManager == nil, let file = fileManager.read("customList.json") {
+            
+            ruleManager = ContentBlockerRuleManager(data: file)
         }
     }
     
     
     func addButtonPressed(sender: AnyObject) {
         
-        self.performSegueWithIdentifier("whitelistAddSegue", sender: nil)
+        self.performSegueWithIdentifier("addCustomRuleSegue", sender: nil)
     }
     
     
@@ -36,10 +38,10 @@ class WhitelistViewController: RuleListViewController {
     */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "whitelistAddSegue" {
-
+        if segue.identifier == "addCustomRuleSegue" {
+            
             let navController = segue.destinationViewController as! UINavigationController
-            let controller    = navController.topViewController as! AddWhitelistItemViewController
+            let controller    = navController.topViewController as! AddCustomRuleViewController
             
             controller.ruleManager = self.ruleManager
         }
@@ -48,13 +50,13 @@ class WhitelistViewController: RuleListViewController {
     
     /*
      * Our view was deinitialized so we'll write the JSON back to the file
-     * This saves us from writing it each time a change is made, and instead 
+     * This saves us from writing it each time a change is made, and instead
      * writes only when we exit this view
     */
     deinit {
         
         if let rawJSONString = self.ruleManager?.getRawJSONString() {
-            self.fileManager.write("whitelist.json", fileContents: rawJSONString)
+            self.fileManager.write("customList.json", fileContents: rawJSONString)
         }
     }
     
@@ -62,19 +64,15 @@ class WhitelistViewController: RuleListViewController {
 
 
 // MARK - UITableView DataSource
-extension WhitelistViewController {
+extension CustomRuleViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let title = rules![indexPath.row].trigger.ifDomain
-        
-        let formattedTitle = title!.stringByReplacingOccurrencesOfString(
-            WhitelistRuleFactory.whitelistItemPrefix, withString: ""
-        )
+        let title = rules![indexPath.row].trigger.urlFilter
         
         let cell = UITableViewCell()
-        cell.accessoryType = UITableViewCellAccessoryType.None
-        cell.textLabel?.text = formattedTitle
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        cell.textLabel?.text = title
         
         return cell
     }
@@ -83,16 +81,16 @@ extension WhitelistViewController {
 
 
 // MARK - UITableView Delegate
-extension WhitelistViewController {
-    
+extension CustomRuleViewController {
+
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         
         if section == 0 && ruleManager?.count() > 0 {
             
-            return "Swipe left to remove a website."
+            return "Swipe left to remove a rule."
         }
         
         return nil
     }
-    
 }
+

@@ -6,52 +6,22 @@
 //  Copyright © 2015 Francis Bailey. All rights reserved.
 //
 
+
 import UIKit
 import SwiftForms
 
 
 
-class AddWhitelistItemViewController: FormViewController {
+class AddWhitelistItemViewController: AddItemViewController {
 
     
     var ruleManager: ContentBlockerRuleManager?
     
     
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.initializeForm()
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelButtonPressed:")
-        let saveButton   = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.Plain, target: self, action: "saveButtonPressed:")
-        
-        self.navigationItem.leftBarButtonItem  = cancelButton
-        self.navigationItem.rightBarButtonItem = saveButton
-        
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    
-    /*
-     * Handle cancel button action
-    */
-    func cancelButtonPressed(sender: AnyObject) {
-        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    
     /*
      * Save the new rule and close the view, unless an error occurred
     */
-    func saveButtonPressed(sender: AnyObject) {
+    override func saveButtonPressed(sender: AnyObject) {
         
         let formData = self.form.formValues()
 
@@ -87,11 +57,10 @@ class AddWhitelistItemViewController: FormViewController {
     }
     
     
-    
     /*
      * Insantiate the form object and generate fields to display
     */
-    func initializeForm() {
+    override func initializeForm() -> FormDescriptor {
         
         let form       = FormDescriptor()
         let section    = FormSectionDescriptor()
@@ -106,16 +75,7 @@ class AddWhitelistItemViewController: FormViewController {
         
         form.sections = [ section ]
         
-        self.form = form
+        return form
     }
-    
-    
-    func showAlert(message: String) {
-        
-        let alert = UIAlertController(title: "Validation Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
 
 }
