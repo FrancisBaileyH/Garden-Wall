@@ -36,7 +36,7 @@ class RuleListViewController: UITableViewController {
     */
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if let count = self.ruleManager?.count() {
+        if let count = self.rules?.count {
             
             if count == 0 {
                 tableView.backgroundView = self.createLabelView(tableView, message: self.labelText)
@@ -71,6 +71,8 @@ class RuleListViewController: UITableViewController {
             
             if let rule = self.ruleManager?.fetch(indexPath.row) {
                 self.ruleManager?.delete(rule)
+                self.rules?.removeAtIndex(indexPath.row)
+                
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
                 
                 if tableView.numberOfRowsInSection(0) < 1 {

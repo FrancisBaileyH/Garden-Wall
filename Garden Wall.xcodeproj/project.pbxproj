@@ -180,6 +180,39 @@
 			path = ContentBlocker;
 			sourceTree = "<group>";
 		};
+		B394EC6C1C1666BD009A1258 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				B336B5D21C1150C400F31DBB /* WhitelistRuleFactory.swift */,
+				B394EC6A1C1661BE009A1258 /* CustomRuleFactory.swift */,
+			);
+			name = Factory;
+			sourceTree = "<group>";
+		};
+		B394EC6E1C1666EC009A1258 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B3F42BC01C066797006D6575 /* HomeViewController.swift */,
+				B394EC621C13CE8E009A1258 /* CustomRuleViewController.swift */,
+				B336B5B31C0D4AE000F31DBB /* WhitelistViewController.swift */,
+				B394EC641C13D125009A1258 /* RuleListViewController.swift */,
+				B336B5D01C1122EF00F31DBB /* AddWhitelistItemViewController.swift */,
+				B394EC681C14EF44009A1258 /* AddItemViewController.swift */,
+				B394EC661C14EAC2009A1258 /* AddCustomRuleViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B394EC6F1C166720009A1258 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B336B5BA1C0D681A00F31DBB /* Garden Wall.entitlements */,
+				B3F42BC51C066797006D6575 /* Assets.xcassets */,
+				B336B5BE1C102C4B00F31DBB /* blockerList.json */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		B3F42BB21C066797006D6575 = {
 			isa = PBXGroup;
 			children = (
@@ -208,25 +241,16 @@
 		B3F42BBD1C066797006D6575 /* Garden Wall */ = {
 			isa = PBXGroup;
 			children = (
-				B336B5BA1C0D681A00F31DBB /* Garden Wall.entitlements */,
+				B394EC6F1C166720009A1258 /* Assets */,
+				B394EC6E1C1666EC009A1258 /* Controllers */,
+				B394EC6C1C1666BD009A1258 /* Factory */,
 				B3F42BBE1C066797006D6575 /* AppDelegate.swift */,
-				B3F42BC01C066797006D6575 /* HomeViewController.swift */,
 				B3F42BC21C066797006D6575 /* Main.storyboard */,
-				B394EC621C13CE8E009A1258 /* CustomRuleViewController.swift */,
-				B336B5B31C0D4AE000F31DBB /* WhitelistViewController.swift */,
-				B394EC641C13D125009A1258 /* RuleListViewController.swift */,
-				B336B5D01C1122EF00F31DBB /* AddWhitelistItemViewController.swift */,
-				B394EC681C14EF44009A1258 /* AddItemViewController.swift */,
-				B394EC661C14EAC2009A1258 /* AddCustomRuleViewController.swift */,
-				B394EC6A1C1661BE009A1258 /* CustomRuleFactory.swift */,
-				B3F42BC51C066797006D6575 /* Assets.xcassets */,
 				B3F42BC71C066797006D6575 /* LaunchScreen.storyboard */,
 				B3F42BCA1C066797006D6575 /* Info.plist */,
 				B398DAAF1C0673C700F9F340 /* ContentBlockerRuleManager.swift */,
-				B336B5D21C1150C400F31DBB /* WhitelistRuleFactory.swift */,
 				B336B5B71C0D5A7700F31DBB /* ContentBlockerFileManager.swift */,
 				B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */,
-				B336B5BE1C102C4B00F31DBB /* blockerList.json */,
 			);
 			path = "Garden Wall";
 			sourceTree = "<group>";
