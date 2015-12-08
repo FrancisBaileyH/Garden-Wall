@@ -52,7 +52,7 @@ class WhitelistViewController: RuleListViewController {
      * writes only when we exit this view
     */
     deinit {
-        
+
         if let rawJSONString = self.ruleManager?.getRawJSONString() {
             self.fileManager.write("whitelist.json", fileContents: rawJSONString)
         }
