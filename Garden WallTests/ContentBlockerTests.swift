@@ -109,7 +109,7 @@ class ContentBlockerTests: XCTestCase {
         action.type       = ContentBlockerRuleActionType.block
         
         var trigger       = ContentBlockerRuleTrigger()
-        trigger.loadType  = ContentBlockerRuleTriggerLoadType.thirdParty
+        trigger.loadType  = [ContentBlockerRuleTriggerLoadType.thirdParty]
         trigger.urlFilter = ".*"
         
         newRule           = ContentBlockerRule(action: action, trigger: trigger)

@@ -25,6 +25,7 @@
 		B394EC691C14EF44009A1258 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394EC681C14EF44009A1258 /* AddItemViewController.swift */; };
 		B394EC6B1C1661BE009A1258 /* CustomRuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394EC6A1C1661BE009A1258 /* CustomRuleFactory.swift */; };
 		B394EC711C16A773009A1258 /* StringEnumArrayTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394EC701C16A773009A1258 /* StringEnumArrayTransform.swift */; };
+		B394EC731C16B3CC009A1258 /* StringEnumArrayTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394EC701C16A773009A1258 /* StringEnumArrayTransform.swift */; };
 		B398DAB01C0673C700F9F340 /* ContentBlockerRuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAAF1C0673C700F9F340 /* ContentBlockerRuleManager.swift */; };
 		B398DAB21C0678EA00F9F340 /* ContentBlockerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */; };
 		B3DFA07A1C0698DF00A89BC6 /* ContentBlockerRuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAAF1C0673C700F9F340 /* ContentBlockerRuleManager.swift */; };
@@ -215,6 +216,14 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
+		B394EC721C16B383009A1258 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B394EC701C16A773009A1258 /* StringEnumArrayTransform.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		B3F42BB21C066797006D6575 = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +252,7 @@
 		B3F42BBD1C066797006D6575 /* Garden Wall */ = {
 			isa = PBXGroup;
 			children = (
+				B394EC721C16B383009A1258 /* Extensions */,
 				B394EC6F1C166720009A1258 /* Assets */,
 				B394EC6E1C1666EC009A1258 /* Controllers */,
 				B394EC6C1C1666BD009A1258 /* Factory */,
@@ -253,7 +263,6 @@
 				B398DAAF1C0673C700F9F340 /* ContentBlockerRuleManager.swift */,
 				B336B5B71C0D5A7700F31DBB /* ContentBlockerFileManager.swift */,
 				B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */,
-				B394EC701C16A773009A1258 /* StringEnumArrayTransform.swift */,
 			);
 			path = "Garden Wall";
 			sourceTree = "<group>";
@@ -543,6 +552,7 @@
 				B3DFA07B1C0698EA00A89BC6 /* ContentBlockerRule.swift in Sources */,
 				B3DFA07A1C0698DF00A89BC6 /* ContentBlockerRuleManager.swift in Sources */,
 				B336B5D61C11529200F31DBB /* WhitelistRuleFactory.swift in Sources */,
+				B394EC731C16B3CC009A1258 /* StringEnumArrayTransform.swift in Sources */,
 				B3F42BD41C066797006D6575 /* Garden_WallTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
