@@ -8,6 +8,7 @@
 
 
 import UIKit
+import SafariServices
 
 
 
@@ -50,11 +51,20 @@ class WhitelistViewController: RuleListViewController {
      * Our view was deinitialized so we'll write the JSON back to the file
      * This saves us from writing it each time a change is made, and instead 
      * writes only when we exit this view
+     *
+     * @TODO Refactor this so that it's using a WhiteListEntity and BlockerListEntity
+     *  to perform CRUD operations and abstract out the reloading and such
     */
     deinit {
 
         if let rawJSONString = self.ruleManager?.getRawJSONString() {
             self.fileManager.write("whitelist.json", fileContents: rawJSONString)
+            
+            if let mergedJSON = MergedRulesFileFactory.build() {
+                self.fileManager.write("blockerList.json", fileContents: mergedJSON)
+                SFContentBlockerManager.reloadContentBlockerWithIdentifier("com.francisbailey.Garden-Wall.ContentBlocker", completionHandler: nil)
+            }
+            
         }
     }
     

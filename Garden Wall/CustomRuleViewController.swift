@@ -8,6 +8,7 @@
 
 
 import UIKit
+import SafariServices
 
 
 
@@ -57,6 +58,11 @@ class CustomRuleViewController: RuleListViewController {
         
         if let rawJSONString = self.ruleManager?.getRawJSONString() {
             self.fileManager.write("customList.json", fileContents: rawJSONString)
+            
+            if let mergedJSON = MergedRulesFileFactory.build() {
+                self.fileManager.write("blockerList.json", fileContents: mergedJSON)
+                SFContentBlockerManager.reloadContentBlockerWithIdentifier("com.francisbailey.Garden-Wall.ContentBlocker", completionHandler: nil)
+            }
         }
     }
     

@@ -41,7 +41,7 @@ class ContentBlockerRuleManager {
                 self.json.arrayObject?.append(jsonRule.rawValue)
             }
             else {
-                self.json.arrayObject = [ jsonRule.rawValue ]
+                self.json.arrayObject = [jsonRule.rawValue]
             }
             
             return true
@@ -149,6 +149,31 @@ class ContentBlockerRuleManager {
         }
         
         return nil
+    }
+    
+    
+    /*
+     * Merge to JSON rules together
+    */
+    static func merge(ruleSetA: JSON, ruleSetB: JSON) -> JSON? {
+        
+        if let arrA = ruleSetA.arrayObject {
+            
+            if let arrB = ruleSetB.arrayObject {
+                return JSON(arrA + arrB)
+            }
+        }
+        
+        return nil
+    }
+    
+    
+    func merge(rules: JSON) {
+        
+        if let arrA = rules.arrayObject, let arrB = self.json.arrayObject  {
+         
+            self.json = JSON(arrA + arrB)
+        }
     }
     
     
