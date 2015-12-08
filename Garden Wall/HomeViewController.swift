@@ -82,6 +82,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if indexPath.section == 0 && indexPath.row == 0 {
         
             let cellSwitch = UISwitch(frame: CGRectZero) as UISwitch
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.accessoryView = cellSwitch
         }
         else {
@@ -100,16 +101,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     */
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
      
-        
         switch indexPath.section {
             
             case 0:
                 
-                break;
+                break
             
             case 1:
                 handleMenuSectionAction(indexPath.row)
-            break
+                break
             
             default:
             
@@ -130,15 +130,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             case 0:
                 segueId = "whitelistManagementSegue"
-            break
+                break
             
             case 1:
                 segueId = "advancedManagementSegue"
-            break
+                break
             
             case 2:
                 segueId = "aboutSegue"
-            break
+                break
             
             default:
                 segueId = nil
