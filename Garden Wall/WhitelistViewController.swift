@@ -76,15 +76,21 @@ extension WhitelistViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let title = rules![indexPath.row].trigger.ifDomain
-        
-        let formattedTitle = title!.stringByReplacingOccurrencesOfString(
-            WhitelistRuleFactory.whitelistItemPrefix, withString: ""
-        )
-        
         let cell = UITableViewCell()
+        
+        if let title = rules?[indexPath.row].trigger.ifDomain?[0] {
+        
+            let formattedTitle = title.stringByReplacingOccurrencesOfString(
+                WhitelistRuleFactory.whitelistItemPrefix, withString: ""
+            )
+            
+            cell.textLabel?.text = formattedTitle
+        }
+        else {
+            cell.textLabel?.text = "No Title"
+        }
+        
         cell.accessoryType = UITableViewCellAccessoryType.None
-        cell.textLabel?.text = formattedTitle
         
         return cell
     }

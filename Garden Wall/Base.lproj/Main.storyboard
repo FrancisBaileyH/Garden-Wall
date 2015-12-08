@@ -217,7 +217,7 @@
                     <navigationItem key="navigationItem" id="BkW-L3-Rp1"/>
                     <connections>
                         <outlet property="buildLabel" destination="ohw-Wo-kdw" id="jXu-sG-bii"/>
-                        <segue destination="GDI-dQ-hEW" kind="show" identifier="aboutSegue" id="kaI-QQ-VGn"/>
+                        <segue destination="GDI-dQ-hEW" kind="show" identifier="fileViewerSegue" id="kaI-QQ-VGn"/>
                         <segue destination="JJO-lb-r1i" kind="show" identifier="whitelistManagementSegue" id="Sww-CH-A9n"/>
                         <segue destination="p0N-ii-nrr" kind="show" identifier="advancedManagementSegue" id="EF0-ts-Vt0"/>
                     </connections>
@@ -226,10 +226,10 @@
             </objects>
             <point key="canvasLocation" x="358.5" y="424"/>
         </scene>
-        <!--About View Controller-->
+        <!--File View Controller-->
         <scene sceneID="n6Q-kl-Rag">
             <objects>
-                <viewController title="About Garden Wall" id="GDI-dQ-hEW" userLabel="About View Controller" sceneMemberID="viewController">
+                <viewController title="blockerList.json" id="GDI-dQ-hEW" userLabel="File View Controller" customClass="FileViewController" customModule="Garden_Wall" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Eb1-QZ-fN6"/>
                         <viewControllerLayoutGuide type="bottom" id="lKZ-ED-hRX"/>
@@ -238,42 +238,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orb-vz-U0g">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qkm-qJ-uf3">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
-                            </scrollView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lKZ-ED-hRX" firstAttribute="top" secondItem="Orb-vz-U0g" secondAttribute="bottom" id="JIg-xe-9Sz"/>
-                            <constraint firstItem="Orb-vz-U0g" firstAttribute="leading" secondItem="bc7-hc-Q0p" secondAttribute="leading" id="eEt-qJ-DRo"/>
-                            <constraint firstItem="Orb-vz-U0g" firstAttribute="top" secondItem="Eb1-QZ-fN6" secondAttribute="bottom" id="hjb-qO-c2r"/>
-                            <constraint firstAttribute="trailing" secondItem="Orb-vz-U0g" secondAttribute="trailing" id="r9U-2k-dE9"/>
+                            <constraint firstAttribute="trailing" secondItem="Qkm-qJ-uf3" secondAttribute="trailing" id="47g-Jo-5Q0"/>
+                            <constraint firstItem="Qkm-qJ-uf3" firstAttribute="top" secondItem="Eb1-QZ-fN6" secondAttribute="bottom" id="KHF-oS-03b"/>
+                            <constraint firstItem="Qkm-qJ-uf3" firstAttribute="leading" secondItem="bc7-hc-Q0p" secondAttribute="leading" id="Tic-Dt-9an"/>
+                            <constraint firstItem="lKZ-ED-hRX" firstAttribute="top" secondItem="Qkm-qJ-uf3" secondAttribute="bottom" id="ao3-rD-wag"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="Orb-vz-U0g"/>
+                                <exclude reference="Qkm-qJ-uf3"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="JIg-xe-9Sz"/>
-                                <exclude reference="eEt-qJ-DRo"/>
-                                <exclude reference="hjb-qO-c2r"/>
-                                <exclude reference="r9U-2k-dE9"/>
+                                <exclude reference="47g-Jo-5Q0"/>
+                                <exclude reference="KHF-oS-03b"/>
+                                <exclude reference="Tic-Dt-9an"/>
+                                <exclude reference="ao3-rD-wag"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="Orb-vz-U0g"/>
+                                <include reference="Qkm-qJ-uf3"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="JIg-xe-9Sz"/>
-                                <include reference="eEt-qJ-DRo"/>
-                                <include reference="hjb-qO-c2r"/>
-                                <include reference="r9U-2k-dE9"/>
+                                <include reference="47g-Jo-5Q0"/>
+                                <include reference="KHF-oS-03b"/>
+                                <include reference="Tic-Dt-9an"/>
+                                <include reference="ao3-rD-wag"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="fileTextView" destination="Qkm-qJ-uf3" id="EhU-WF-sEm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxI-iO-Guc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -290,7 +296,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="OGg-vg-e0B">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OGg-vg-e0B" id="097-Yo-kik">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>

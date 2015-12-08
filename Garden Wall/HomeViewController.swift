@@ -19,7 +19,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     
-    let menu = [ ["Enable Adblocking"], ["Manage Whitelisted Websites", "Advanced Configuration", "About"] ]
+    let menu = [ ["Enable Adblocking"], ["Manage Whitelisted Websites", "Advanced Configuration", "View Blocker List"] ]
     
     
     /*
@@ -137,7 +137,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 break
             
             case 2:
-                segueId = "aboutSegue"
+                segueId = "fileViewerSegue"
                 break
             
             default:

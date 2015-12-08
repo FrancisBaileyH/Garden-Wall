@@ -20,6 +20,7 @@
 		B37EAA3B1C067245002D3925 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37EAA3A1C067245002D3925 /* ActionRequestHandler.swift */; };
 		B37EAA3F1C067245002D3925 /* ContentBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B37EAA361C067245002D3925 /* ContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B380DA281C16B7DA001B30BA /* MergedRulesFileFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B380DA271C16B7DA001B30BA /* MergedRulesFileFactory.swift */; };
+		B380DA2B1C16D950001B30BA /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B380DA2A1C16D950001B30BA /* FileViewController.swift */; };
 		B394EC631C13CE8E009A1258 /* CustomRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394EC621C13CE8E009A1258 /* CustomRuleViewController.swift */; };
 		B394EC651C13D125009A1258 /* RuleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394EC641C13D125009A1258 /* RuleListViewController.swift */; };
 		B394EC671C14EAC2009A1258 /* AddCustomRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394EC661C14EAC2009A1258 /* AddCustomRuleViewController.swift */; };
@@ -98,6 +99,7 @@
 		B37EAA3A1C067245002D3925 /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
 		B37EAA3C1C067245002D3925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B380DA271C16B7DA001B30BA /* MergedRulesFileFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergedRulesFileFactory.swift; sourceTree = "<group>"; };
+		B380DA2A1C16D950001B30BA /* FileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
 		B394EC621C13CE8E009A1258 /* CustomRuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRuleViewController.swift; sourceTree = "<group>"; };
 		B394EC641C13D125009A1258 /* RuleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleListViewController.swift; sourceTree = "<group>"; };
 		B394EC661C14EAC2009A1258 /* AddCustomRuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCustomRuleViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		B394EC6E1C1666EC009A1258 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B380DA2A1C16D950001B30BA /* FileViewController.swift */,
 				B3F42BC01C066797006D6575 /* HomeViewController.swift */,
 				B394EC621C13CE8E009A1258 /* CustomRuleViewController.swift */,
 				B336B5B31C0D4AE000F31DBB /* WhitelistViewController.swift */,
@@ -531,6 +534,7 @@
 			files = (
 				B336B5D11C1122EF00F31DBB /* AddWhitelistItemViewController.swift in Sources */,
 				B394EC651C13D125009A1258 /* RuleListViewController.swift in Sources */,
+				B380DA2B1C16D950001B30BA /* FileViewController.swift in Sources */,
 				B394EC631C13CE8E009A1258 /* CustomRuleViewController.swift in Sources */,
 				B398DAB21C0678EA00F9F340 /* ContentBlockerRule.swift in Sources */,
 				B336B5D31C1150C400F31DBB /* WhitelistRuleFactory.swift in Sources */,

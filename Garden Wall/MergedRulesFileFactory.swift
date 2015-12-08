@@ -19,8 +19,9 @@ class MergedRulesFileFactory {
         
         if let whitelist = fileManager.read("whitelist.json"),
            let customList = fileManager.read("customList.json"),
-           let blockerList = fileManager.read("blockerList.json") {
-        
+           let blockerListPath = NSBundle.mainBundle().pathForResource("blockerList", ofType: "json"),
+           let blockerList = NSData(contentsOfFile: blockerListPath) {
+                
             let contentBlocker = ContentBlockerRuleManager(data: blockerList)
             
             contentBlocker.merge(JSON(data: customList))
