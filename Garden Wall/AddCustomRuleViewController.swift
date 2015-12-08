@@ -19,12 +19,12 @@ class AddCustomRuleViewController: AddItemViewController {
     
     
     struct fields {
-        static let urlFilter = "urlFilter"
+        static let urlFilter        = "urlFilter"
         static let urlCaseSensitive = "urlCaseSensitive"
-        static let loadType = "loadType"
-        static let resourceType = "resourceType"
-        static let type = "type"
-        static let selector = "selector"
+        static let loadType         = "loadType"
+        static let resourceType     = "resourceType"
+        static let type             = "type"
+        static let selector         = "selector"
     }
     
     
