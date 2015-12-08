@@ -23,6 +23,7 @@
 		B394EC651C13D125009A1258 /* RuleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394EC641C13D125009A1258 /* RuleListViewController.swift */; };
 		B394EC671C14EAC2009A1258 /* AddCustomRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394EC661C14EAC2009A1258 /* AddCustomRuleViewController.swift */; };
 		B394EC691C14EF44009A1258 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394EC681C14EF44009A1258 /* AddItemViewController.swift */; };
+		B394EC6B1C1661BE009A1258 /* CustomRuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394EC6A1C1661BE009A1258 /* CustomRuleFactory.swift */; };
 		B398DAB01C0673C700F9F340 /* ContentBlockerRuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAAF1C0673C700F9F340 /* ContentBlockerRuleManager.swift */; };
 		B398DAB21C0678EA00F9F340 /* ContentBlockerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */; };
 		B3DFA07A1C0698DF00A89BC6 /* ContentBlockerRuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAAF1C0673C700F9F340 /* ContentBlockerRuleManager.swift */; };
@@ -97,6 +98,7 @@
 		B394EC641C13D125009A1258 /* RuleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleListViewController.swift; sourceTree = "<group>"; };
 		B394EC661C14EAC2009A1258 /* AddCustomRuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCustomRuleViewController.swift; sourceTree = "<group>"; };
 		B394EC681C14EF44009A1258 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		B394EC6A1C1661BE009A1258 /* CustomRuleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRuleFactory.swift; sourceTree = "<group>"; };
 		B398DAAF1C0673C700F9F340 /* ContentBlockerRuleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlockerRuleManager.swift; sourceTree = "<group>"; };
 		B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlockerRule.swift; sourceTree = "<group>"; };
 		B3DFA07E1C06999200A89BC6 /* ContentBlockerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlockerTests.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				B336B5D01C1122EF00F31DBB /* AddWhitelistItemViewController.swift */,
 				B394EC681C14EF44009A1258 /* AddItemViewController.swift */,
 				B394EC661C14EAC2009A1258 /* AddCustomRuleViewController.swift */,
+				B394EC6A1C1661BE009A1258 /* CustomRuleFactory.swift */,
 				B3F42BC51C066797006D6575 /* Assets.xcassets */,
 				B3F42BC71C066797006D6575 /* LaunchScreen.storyboard */,
 				B3F42BCA1C066797006D6575 /* Info.plist */,
@@ -495,6 +498,7 @@
 				B394EC691C14EF44009A1258 /* AddItemViewController.swift in Sources */,
 				B3F42BC11C066797006D6575 /* HomeViewController.swift in Sources */,
 				B3F42BBF1C066797006D6575 /* AppDelegate.swift in Sources */,
+				B394EC6B1C1661BE009A1258 /* CustomRuleFactory.swift in Sources */,
 				B336B5B41C0D4AE000F31DBB /* WhitelistViewController.swift in Sources */,
 				B394EC671C14EAC2009A1258 /* AddCustomRuleViewController.swift in Sources */,
 				B336B5B81C0D5A7700F31DBB /* ContentBlockerFileManager.swift in Sources */,

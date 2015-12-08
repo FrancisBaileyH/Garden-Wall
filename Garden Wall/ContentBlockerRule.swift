@@ -54,8 +54,8 @@ struct ContentBlockerRuleTrigger: Mappable {
     
     var urlFilter: String!
     var urlFilterIsCaseSensitive: Bool?
-    var loadType: ContentBlockerRuleTriggerLoadType?
-    var resourceType: ContentBlockerRuleTriggerResourceType?
+    var loadType: [ContentBlockerRuleTriggerLoadType]?
+    var resourceType: [ContentBlockerRuleTriggerResourceType]?
     var ifDomain: String?
     
     
@@ -63,7 +63,7 @@ struct ContentBlockerRuleTrigger: Mappable {
     init() { }
     
     
-    init(urlFilter: String, urlCase: Bool?, loadType: ContentBlockerRuleTriggerLoadType?, resourceType: ContentBlockerRuleTriggerResourceType?, ifDomain: String?) {
+    init(urlFilter: String, urlCase: Bool?, loadType: [ContentBlockerRuleTriggerLoadType]?, resourceType: [ContentBlockerRuleTriggerResourceType]?, ifDomain: String?) {
         
         self.urlFilter = urlFilter
         self.urlFilterIsCaseSensitive = urlCase
