@@ -7,15 +7,6 @@
 //
 
 
-//
-//  AddWhitelistItemViewController.swift
-//  Garden Wall
-//
-//  Created by Francis Bailey on 2015-12-03.
-//  Copyright © 2015 Francis Bailey. All rights reserved.
-//
-
-
 import UIKit
 import SwiftForms
 
