@@ -12,7 +12,7 @@ import GBVersionTracking
 
 
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController {
     
     
     @IBOutlet weak var buildLabel: UILabel!
@@ -48,70 +48,29 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
     }
     
-    
-    /*
-     * Configure basic table layout and view settings
-    */
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        
-        return 20
-    }
-    
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine;
-        
-        return menu.count
-    }
-    
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menu[section].count
-    }
-    
-    
-    /*
-     * Initialize Menu Item Cells
-    */
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("MenuItemCell", forIndexPath: indexPath)
-        
-        
-        if indexPath.section == 0 && indexPath.row == 0 {
-        
-            let cellSwitch = UISwitch(frame: CGRectZero) as UISwitch
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-            cell.accessoryView = cellSwitch
-        }
-        else {
-            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        }
-        
-        cell.textLabel!.text = menu[indexPath.section][indexPath.row]
 
-        
-        return cell
-    }
+}
+
+
+extension HomeViewController: UITableViewDelegate {
     
     
     /*
-     * Show new controller based on which menu item was selected
+    * Show new controller based on which menu item was selected
     */
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-     
+        
         switch indexPath.section {
             
-            case 0:
-                
-                break
+        case 0:
             
-            case 1:
-                handleMenuSectionAction(indexPath.row)
-                break
+            break
             
-            default:
+        case 1:
+            handleMenuSectionAction(indexPath.row)
+            break
+            
+        default:
             
             break
             
@@ -128,20 +87,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         switch row {
             
-            case 0:
-                segueId = "whitelistManagementSegue"
-                break
+        case 0:
+            segueId = "whitelistManagementSegue"
+            break
             
-            case 1:
-                segueId = "advancedManagementSegue"
-                break
+        case 1:
+            segueId = "advancedManagementSegue"
+            break
             
-            case 2:
-                segueId = "fileViewerSegue"
-                break
+        case 2:
+            segueId = "fileViewerSegue"
+            break
             
-            default:
-                segueId = nil
+        default:
+            segueId = nil
             
         }
         
@@ -149,5 +108,59 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.performSegueWithIdentifier(id, sender: nil)
         }
     }
+
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return menu[section].count
+    }
+    
+    
+    /*
+     * Configure basic table layout and view settings
+    */
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        return 20
+    }
+    
+}
+
+
+extension HomeViewController: UITableViewDataSource {
+    
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine;
+        
+        return menu.count
+    }
+    
+    
+    /*
+     * Initialize Menu Item Cells
+    */
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("MenuItemCell", forIndexPath: indexPath)
+        
+        if indexPath.section == 0 && indexPath.row == 0 {
+            
+            let cellSwitch = UISwitch(frame: CGRectZero) as UISwitch
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.accessoryView = cellSwitch
+        }
+        else {
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        }
+        
+        cell.textLabel!.text = menu[indexPath.section][indexPath.row]
+        
+        
+        return cell
+    }
+    
 }
 
