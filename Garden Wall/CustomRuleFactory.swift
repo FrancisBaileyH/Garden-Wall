@@ -45,6 +45,9 @@ class CustomRuleFactory {
                     break
                 
                 case fields.loadType:
+                    /* @TODO use a transform to convert array of strings to array of enums
+                    */
+                    
                     trigger.loadType = field as? [ContentBlockerRuleTriggerLoadType]
                     break
                 

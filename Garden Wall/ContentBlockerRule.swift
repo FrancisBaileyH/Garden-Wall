@@ -77,8 +77,8 @@ struct ContentBlockerRuleTrigger: Mappable {
         
         urlFilter                <- map["url-filter"]
         urlFilterIsCaseSensitive <- map["url-filter-is-case-sensitive"]
-        loadType                 <- (map["load-type"], StringEnumArrayTransform())
-        resourceType             <- (map["resource-type"], StringEnumArrayTransform())
+        loadType                 <- map["load-type"]
+        resourceType             <- map["resource-type"]
         ifDomain                 <- map["if-domain"]
     }
 }
