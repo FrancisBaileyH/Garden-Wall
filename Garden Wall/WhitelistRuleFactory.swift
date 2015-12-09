@@ -11,7 +11,6 @@ import Foundation
 
 class WhitelistRuleFactory {
     
-    static let whitelistItemPrefix = "https?://"
     
     static func build(url: String) -> ContentBlockerRule {
         
@@ -20,7 +19,7 @@ class WhitelistRuleFactory {
         
         action.type = ContentBlockerRuleActionType.ignoreRules
         trigger.ifDomain = [url]
-        trigger.urlFilter = url
+        trigger.urlFilter = ".*"
         
         return ContentBlockerRule(trigger: trigger, action: action)
     }
