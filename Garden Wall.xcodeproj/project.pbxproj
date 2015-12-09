@@ -34,6 +34,7 @@
 		B3DFA07B1C0698EA00A89BC6 /* ContentBlockerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */; };
 		B3DFA07F1C06999200A89BC6 /* ContentBlockerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DFA07E1C06999200A89BC6 /* ContentBlockerTests.swift */; };
 		B3DFA0811C069B6700A89BC6 /* TestContentBlocker.json in Resources */ = {isa = PBXBuildFile; fileRef = B3DFA0801C069B6700A89BC6 /* TestContentBlocker.json */; };
+		B3E37A5D1C18EF8200D30E73 /* FormEnumValueTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E37A5C1C18EF8200D30E73 /* FormEnumValueTransform.swift */; };
 		B3F42BBF1C066797006D6575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F42BBE1C066797006D6575 /* AppDelegate.swift */; };
 		B3F42BC11C066797006D6575 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F42BC01C066797006D6575 /* HomeViewController.swift */; };
 		B3F42BC41C066797006D6575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F42BC21C066797006D6575 /* Main.storyboard */; };
@@ -110,6 +111,7 @@
 		B398DAB11C0678EA00F9F340 /* ContentBlockerRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlockerRule.swift; sourceTree = "<group>"; };
 		B3DFA07E1C06999200A89BC6 /* ContentBlockerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlockerTests.swift; sourceTree = "<group>"; };
 		B3DFA0801C069B6700A89BC6 /* TestContentBlocker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestContentBlocker.json; sourceTree = "<group>"; };
+		B3E37A5C1C18EF8200D30E73 /* FormEnumValueTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormEnumValueTransform.swift; sourceTree = "<group>"; };
 		B3F42BBB1C066797006D6575 /* Garden Wall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Garden Wall.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F42BBE1C066797006D6575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3F42BC01C066797006D6575 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				B336B5D21C1150C400F31DBB /* WhitelistRuleFactory.swift */,
 				B394EC6A1C1661BE009A1258 /* CustomRuleFactory.swift */,
+				B3E37A5C1C18EF8200D30E73 /* FormEnumValueTransform.swift */,
 				B380DA271C16B7DA001B30BA /* MergedRulesFileFactory.swift */,
 			);
 			name = Factory;
@@ -539,6 +542,7 @@
 				B398DAB21C0678EA00F9F340 /* ContentBlockerRule.swift in Sources */,
 				B336B5D31C1150C400F31DBB /* WhitelistRuleFactory.swift in Sources */,
 				B394EC691C14EF44009A1258 /* AddItemViewController.swift in Sources */,
+				B3E37A5D1C18EF8200D30E73 /* FormEnumValueTransform.swift in Sources */,
 				B3F42BC11C066797006D6575 /* HomeViewController.swift in Sources */,
 				B3F42BBF1C066797006D6575 /* AppDelegate.swift in Sources */,
 				B380DA281C16B7DA001B30BA /* MergedRulesFileFactory.swift in Sources */,

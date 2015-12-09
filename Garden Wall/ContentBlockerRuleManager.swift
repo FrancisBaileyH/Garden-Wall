@@ -57,7 +57,7 @@ class ContentBlockerRuleManager {
     func delete(rule: ContentBlockerRule) {
 
         let jsonRule = convertRuleToJSON(rule)
-        
+
         if let index = getIndexOfRule(jsonRule) {
             self.json.arrayObject?.removeAtIndex(index)
         }
@@ -84,8 +84,10 @@ class ContentBlockerRuleManager {
     func fetch(index: Int) -> ContentBlockerRule? {
         
         if let jsonString = self.json[index].rawString() {
-        
-            if let rule = Mapper<ContentBlockerRule>().map(jsonString) {
+            
+            if var rule = Mapper<ContentBlockerRule>().map(jsonString) {
+                
+                self.cleanEmptyEnums(&rule)
                 
                 return rule
             }
@@ -107,13 +109,30 @@ class ContentBlockerRuleManager {
         for (_, value):(String, JSON) in self.json {
             
             let jsonString = value.rawString()
-            
+
             if let rule = Mapper<ContentBlockerRule>().map(jsonString) {
+                
                 rules.insert(rule, atIndex: i++)
             }
         }
         
         return rules
+    }
+    
+    
+    /*
+     * Temporary fix to prevent ObjectMapper from setting nonexistant enum array types to an empy array
+     * value instead of nil
+    */
+    func cleanEmptyEnums(inout rule: ContentBlockerRule) {
+        
+        if rule.trigger.loadType?.count < 1 {
+            rule.trigger.loadType = nil
+        }
+        
+        if rule.trigger.resourceType?.count < 1 {
+            rule.trigger.resourceType = nil
+        }
     }
     
     

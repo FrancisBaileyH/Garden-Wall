@@ -45,14 +45,23 @@ class CustomRuleFactory {
                     break
                 
                 case fields.loadType:
-                    /* @TODO use a transform to convert array of strings to array of enums
-                    */
+
+                    let transformer = FormEnumValueTransform<ContentBlockerRuleTriggerLoadType, String>()
                     
-                    trigger.loadType = field as? [ContentBlockerRuleTriggerLoadType]
+                    if let values = field as? [String] {
+                    
+                        trigger.loadType = transformer.transformFromFormValue(values)
+                    }
                     break
                 
                 case fields.resourceType:
-                    trigger.resourceType = field as? [ContentBlockerRuleTriggerResourceType]
+                    
+                    let transformer = FormEnumValueTransform<ContentBlockerRuleTriggerResourceType, String>()
+                    
+                    if let values = field as? [String] {
+                        
+                        trigger.resourceType = transformer.transformFromFormValue(values)
+                    }
                     break
                 
                 case fields.type:
