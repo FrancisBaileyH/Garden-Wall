@@ -85,7 +85,7 @@ struct ContentBlockerRuleTrigger: Mappable {
 
 
 /*
-* A JSON Mappable entity that represents the Action part of a Content Blocker rule
+ * A JSON Mappable entity that represents the Action part of a Content Blocker rule
 */
 struct ContentBlockerRuleAction: Mappable {
     
