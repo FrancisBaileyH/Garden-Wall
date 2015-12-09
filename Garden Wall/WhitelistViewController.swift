@@ -82,14 +82,11 @@ extension WhitelistViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("WhitelistRuleCell", forIndexPath: indexPath)
         
         if let title = rules?[indexPath.row].trigger.ifDomain?[0] {
-        
-            let formattedTitle = title.stringByReplacingOccurrencesOfString(
-                WhitelistRuleFactory.whitelistItemPrefix, withString: ""
-            )
             
-            cell.textLabel?.text = formattedTitle
+            cell.textLabel?.text = title
         }
         else {
+            
             cell.textLabel?.text = "No Title"
         }
         
