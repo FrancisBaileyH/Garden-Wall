@@ -62,7 +62,10 @@ class WhitelistViewController: RuleListViewController {
             
             if let mergedJSON = MergedRulesFileFactory.build() {
                 self.fileManager.write("blockerList.json", fileContents: mergedJSON)
-                SFContentBlockerManager.reloadContentBlockerWithIdentifier("com.francisbailey.Garden-Wall.ContentBlocker", completionHandler: nil)
+                SFContentBlockerManager.reloadContentBlockerWithIdentifier("com.francisbailey.Garden-Wall.ContentBlocker", completionHandler: { (error: NSError?) in
+                    NSLog("\(error)")
+                    NSLog("\(error?.code)")
+                })
             }
             
         }

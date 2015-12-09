@@ -22,10 +22,10 @@ class MergedRulesFileFactory {
            let blockerListPath = NSBundle.mainBundle().pathForResource("blockerList", ofType: "json"),
            let blockerList = NSData(contentsOfFile: blockerListPath) {
                 
-            let contentBlocker = ContentBlockerRuleManager(data: blockerList)
+            let contentBlocker = ContentBlockerRuleManager(data: customList)
             
-            contentBlocker.merge(JSON(data: customList))
             contentBlocker.merge(JSON(data: whitelist))
+            contentBlocker.merge(JSON(data: blockerList))
             
             
             return contentBlocker.getRawJSONString()

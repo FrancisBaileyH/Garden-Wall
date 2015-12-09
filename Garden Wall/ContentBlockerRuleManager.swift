@@ -152,27 +152,14 @@ class ContentBlockerRuleManager {
     }
     
     
-    /*
-     * Merge to JSON rules together
-    */
-    static func merge(ruleSetA: JSON, ruleSetB: JSON) -> JSON? {
-        
-        if let arrA = ruleSetA.arrayObject {
-            
-            if let arrB = ruleSetB.arrayObject {
-                return JSON(arrA + arrB)
-            }
-        }
-        
-        return nil
-    }
-    
-    
     func merge(rules: JSON) {
         
         if let arrA = rules.arrayObject, let arrB = self.json.arrayObject  {
          
             self.json = JSON(arrA + arrB)
+        }
+        else if let arrA = rules.arrayObject {
+            self.json = JSON(arrA)
         }
     }
     

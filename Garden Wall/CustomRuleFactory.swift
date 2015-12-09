@@ -66,7 +66,7 @@ class CustomRuleFactory {
             }
         }
         
-        return ContentBlockerRule(action: action, trigger: trigger)
+        return ContentBlockerRule(trigger: trigger, action: action)
     }
 
 }

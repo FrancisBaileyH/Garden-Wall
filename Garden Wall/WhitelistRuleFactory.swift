@@ -19,9 +19,10 @@ class WhitelistRuleFactory {
         var trigger = ContentBlockerRuleTrigger()
         
         action.type = ContentBlockerRuleActionType.ignoreRules
-        trigger.ifDomain = [self.whitelistItemPrefix + url]
+        trigger.ifDomain = [url]
+        trigger.urlFilter = url
         
-        return ContentBlockerRule(action: action, trigger: trigger)
+        return ContentBlockerRule(trigger: trigger, action: action)
     }
     
 }

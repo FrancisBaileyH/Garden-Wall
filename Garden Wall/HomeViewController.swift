@@ -11,7 +11,6 @@ import UIKit
 import GBVersionTracking
 
 
-
 class HomeViewController: UIViewController {
     
     
@@ -40,6 +39,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         buildLabel.text = "Version " + GBVersionTracking.currentVersion()
     }
 
@@ -48,7 +48,23 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-
+    
+    func showSettingsPopup() {
+        
+        let alert = UIAlertController(title: nil, message: "Enable ad blocking by navigating to: \n Settings → Safari → Content Blockers and enable Garden Wall.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:  { (_) -> Void in
+//            
+//            let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
+//            
+//            if let url = settingsUrl {
+//                UIApplication.sharedApplication().openURL(url)
+//            }
+//        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
 }
 
 
@@ -63,7 +79,8 @@ extension HomeViewController: UITableViewDelegate {
         switch indexPath.section {
             
         case 0:
-            
+            // open safari popup
+            showSettingsPopup()
             break
             
         case 1:
@@ -73,8 +90,9 @@ extension HomeViewController: UITableViewDelegate {
         default:
             
             break
-            
         }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     
@@ -145,17 +163,8 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("MenuItemCell", forIndexPath: indexPath)
-        
-        if indexPath.section == 0 && indexPath.row == 0 {
-            
-            let cellSwitch = UISwitch(frame: CGRectZero) as UISwitch
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-            cell.accessoryView = cellSwitch
-        }
-        else {
-            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        }
-        
+
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         cell.textLabel!.text = menu[indexPath.section][indexPath.row]
         
         
