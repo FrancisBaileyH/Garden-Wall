@@ -98,7 +98,7 @@ class ContentBlockerTests: XCTestCase {
         var trigger       = ContentBlockerRuleTrigger()
         trigger.urlFilter = "evil-tracker\\.js"
         
-        existingRule      = ContentBlockerRule(action: action, trigger: trigger)
+        existingRule      = ContentBlockerRule(trigger: trigger, action: action)
         existingJSONRule  = contentBlocker?.convertRuleToJSON(existingRule!)
     }
     
@@ -112,7 +112,7 @@ class ContentBlockerTests: XCTestCase {
         trigger.loadType  = [ContentBlockerRuleTriggerLoadType.thirdParty]
         trigger.urlFilter = ".*"
         
-        newRule           = ContentBlockerRule(action: action, trigger: trigger)
+        newRule           = ContentBlockerRule(trigger: trigger, action: action)
         newJSONRule       = contentBlocker?.convertRuleToJSON(newRule!)
     }
     
