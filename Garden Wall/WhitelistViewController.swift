@@ -76,7 +76,7 @@ extension WhitelistViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCellWithIdentifier("WhitelistRuleCell", forIndexPath: indexPath)
         
         if let title = rules?[indexPath.row].trigger.ifDomain?[0] {
         

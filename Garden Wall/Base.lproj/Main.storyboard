@@ -128,7 +128,7 @@
                                     </tableView>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="JCE-7t-U7h" firstAttribute="top" secondItem="9bg-1O-3Ur" secondAttribute="top" constant="40" id="8YR-MH-jpY">
@@ -259,10 +259,10 @@
                                 <exclude reference="Qkm-qJ-uf3"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ao3-rD-wag"/>
                                 <exclude reference="47g-Jo-5Q0"/>
                                 <exclude reference="KHF-oS-03b"/>
                                 <exclude reference="Tic-Dt-9an"/>
-                                <exclude reference="ao3-rD-wag"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -270,10 +270,10 @@
                                 <include reference="Qkm-qJ-uf3"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="ao3-rD-wag"/>
                                 <include reference="47g-Jo-5Q0"/>
                                 <include reference="KHF-oS-03b"/>
                                 <include reference="Tic-Dt-9an"/>
-                                <include reference="ao3-rD-wag"/>
                             </mask>
                         </variation>
                     </view>
@@ -293,9 +293,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="OGg-vg-e0B">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomRuleCell" id="OGg-vg-e0B">
                                 <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OGg-vg-e0B" id="097-Yo-kik">
@@ -327,19 +327,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aHW-zy-dct">
-                                <rect key="frame" x="0.0" y="114" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aHW-zy-dct" id="hBt-dq-tfE">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
-                                </tableViewCellContentView>
-                                <animations/>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
                             <outlet property="dataSource" destination="doL-TD-QmJ" id="zgh-5c-E4S"/>
                             <outlet property="delegate" destination="doL-TD-QmJ" id="m9b-8W-xrf"/>
@@ -360,6 +348,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WhitelistRuleCell" id="6tj-ZE-C6L">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6tj-ZE-C6L" id="zif-1P-EyO">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="JJO-lb-r1i" id="X3B-yb-TKq"/>
                             <outlet property="delegate" destination="JJO-lb-r1i" id="EQh-nv-Eyl"/>

@@ -76,7 +76,7 @@ extension CustomRuleViewController {
         
         let title = rules![indexPath.row].trigger.urlFilter
         
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCellWithIdentifier("CustomRuleCell", forIndexPath: indexPath)
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         cell.textLabel?.text = title
         

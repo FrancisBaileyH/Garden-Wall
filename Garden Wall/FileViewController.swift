@@ -22,6 +22,8 @@ class FileViewController: UIViewController, UITextViewDelegate {
         
         let fileManager = ContentBlockerFileManager()
         
+        self.automaticallyAdjustsScrollViewInsets = false
+        
         if let fileContents = fileManager.read("blockerList.json") {
             
             let ruleManager = ContentBlockerRuleManager(data: fileContents)
