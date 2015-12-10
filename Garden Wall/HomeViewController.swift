@@ -51,16 +51,16 @@ class HomeViewController: UIViewController {
     
     func showSettingsPopup() {
         
-        let alert = UIAlertController(title: nil, message: "Enable ad blocking by navigating to: \n Settings → Safari → Content Blockers and enable Garden Wall.", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
-//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:  { (_) -> Void in
-//            
-//            let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
-//            
-//            if let url = settingsUrl {
-//                UIApplication.sharedApplication().openURL(url)
-//            }
-//        }))
+        let alert = UIAlertController(title: nil, message: "Enable ad blocking by pressing \"Go to Settings\" and navigating to Safari → Content Blockers and enabling Garden Wall.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Go to Settings", style: UIAlertActionStyle.Default, handler:  { (_) -> Void in
+            
+            let settingsUrl = NSURL(string: "prefs:root=Safari")
+            
+            if let url = settingsUrl {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }))
         
         self.presentViewController(alert, animated: true, completion: nil)
     }
