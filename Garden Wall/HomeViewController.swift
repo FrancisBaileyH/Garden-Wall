@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     
     
     
-    let menu = [ ["Enable Adblocking"], ["Manage Whitelisted Websites", "Advanced Configuration", "View Blocker List"] ]
+    let menu = [ ["Enable Adblocking"], ["Manage Whitelisted Websites", "Manage Custom Rules", "View Blocker List"] ]
     
     
     /*

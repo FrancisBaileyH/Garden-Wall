@@ -18,6 +18,7 @@ class WhitelistViewController: RuleListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.allowsSelection = false
+        self.labelText = "Press the plus sign to add a new site."
         
         if self.ruleManager == nil, let file = self.fileManager.read("whitelist.json") {
 
