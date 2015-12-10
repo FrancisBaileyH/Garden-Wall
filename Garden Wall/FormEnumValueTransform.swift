@@ -55,6 +55,27 @@ class FormEnumValueTransform<T: protocol<RawRepresentable, Hashable>, U: protoco
     }
     
     
+    func transformToFormValue(values: [T]?) -> [U]? {
+        
+        var uArray = [U]()
+        
+        if let arr = values {
+            
+            for item in arr {
+            
+                if let uValue = item.rawValue as? U {
+                    uArray.append(uValue)
+                }
+            
+            }
+            
+            return uArray.count > 0 ? uArray : nil
+        }
+        
+        return nil
+    }
+    
+    
     func iterateEnum<T: Hashable>(_: T.Type) -> AnyGenerator<T> {
         
         var i = 0

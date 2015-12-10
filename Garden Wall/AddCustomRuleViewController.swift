@@ -16,13 +16,38 @@ class AddCustomRuleViewController: AddItemViewController {
 
     
     var ruleManager: ContentBlockerRuleManager?
+    var customRule: ContentBlockerRule?
+    var customRuleIndex: Int?
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.form = self.initializeForm()
+    }
+    
+    
+    func deleteButtonPressed() {
+        
+        if let rule = self.customRule {
+            self.ruleManager?.delete(rule)
+            self.cancelButtonPressed(self)
+        }
+        
+    }
     
         
     override func saveButtonPressed(sender: AnyObject) {
         
         self.form.formValues()
         let rule = CustomRuleFactory.build(self.form.formValues())
-        self.ruleManager?.create(rule)
+        
+        if customRule != nil, let index = customRuleIndex {
+            self.ruleManager?.update(index, rule: rule)
+        }
+        else {
+            self.ruleManager?.create(rule)
+        }
         
         self.cancelButtonPressed(sender)
     }
@@ -32,64 +57,81 @@ class AddCustomRuleViewController: AddItemViewController {
         
         let form = FormDescriptor()
         
+        let textFieldSettings = ["textField.textColor": UIColor.lightGrayColor() ,"textField.textAlignment" : NSTextAlignment.Right.rawValue]
+        
         
         let triggerSection   = FormSectionDescriptor()
+        let actionSection    = FormSectionDescriptor()
+        
+        let loadTypeTransformer = FormEnumValueTransform<ContentBlockerRuleTriggerLoadType, String>()
+        let resTypeTransformer  = FormEnumValueTransform<ContentBlockerRuleTriggerResourceType, String>()
+        let actTypeTransformer  = FormEnumValueTransform<ContentBlockerRuleActionType, String>()
+        
         
         let urlFilter        = FormRowDescriptor(tag: CustomRuleFactory.fields.urlFilter, rowType: FormRowType.Text, title: "URL Filter")
+        urlFilter.configuration[FormRowDescriptor.Configuration.CellConfiguration] = textFieldSettings
+        
         let urlCaseSensitive = FormRowDescriptor(tag: CustomRuleFactory.fields.urlCaseSensitive, rowType: FormRowType.BooleanCheck, title: "URL Filter is Case Sensitive")
         let loadType         = FormRowDescriptor(tag: CustomRuleFactory.fields.loadType, rowType: FormRowType.MultipleSelector, title: "Load Type")
         
         loadType.configuration[FormRowDescriptor.Configuration.AllowsMultipleSelection] = true
-        loadType.configuration[FormRowDescriptor.Configuration.Options] = [
-            ContentBlockerRuleTriggerLoadType.firstParty.rawValue,
-            ContentBlockerRuleTriggerLoadType.thirdParty.rawValue
-        ]
+        loadType.configuration[FormRowDescriptor.Configuration.Options] = loadTypeTransformer.transformToFormValue()
         
         let resourceType = FormRowDescriptor(tag: CustomRuleFactory.fields.resourceType, rowType: FormRowType.MultipleSelector, title: "Resource Type")
         
         resourceType.configuration[FormRowDescriptor.Configuration.AllowsMultipleSelection] = true
-        resourceType.configuration[FormRowDescriptor.Configuration.Options] = [
-            ContentBlockerRuleTriggerResourceType.document.rawValue,
-            ContentBlockerRuleTriggerResourceType.font.rawValue,
-            ContentBlockerRuleTriggerResourceType.image.rawValue,
-            ContentBlockerRuleTriggerResourceType.media.rawValue,
-            ContentBlockerRuleTriggerResourceType.popup.rawValue,
-            ContentBlockerRuleTriggerResourceType.raw.rawValue,
-            ContentBlockerRuleTriggerResourceType.script.rawValue,
-            ContentBlockerRuleTriggerResourceType.styleSheet.rawValue,
-            ContentBlockerRuleTriggerResourceType.svgDoc.rawValue
-        ]
+        resourceType.configuration[FormRowDescriptor.Configuration.Options] = resTypeTransformer.transformToFormValue()
         
+        let actionType = FormRowDescriptor(tag: CustomRuleFactory.fields.type, rowType: FormRowType.MultipleSelector, title: "Type")
+        
+        actionType.configuration[FormRowDescriptor.Configuration.Options] = actTypeTransformer.transformToFormValue()
+        
+        let selector = FormRowDescriptor(tag: CustomRuleFactory.fields.selector, rowType: FormRowType.Text, title: "CSS Selector")
+        selector.configuration[FormRowDescriptor.Configuration.CellConfiguration] = textFieldSettings
+        
+        actionSection.headerTitle  = "Action"
         triggerSection.headerTitle = "Trigger"
+        
+        if let rule = self.customRule {
+
+            selector.value         = rule.action.selector
+            urlFilter.value        = rule.trigger.urlFilter
+            actionType.value       = [rule.action.type.rawValue]
+            loadType.value         = loadTypeTransformer.transformToFormValue(rule.trigger.loadType)
+            resourceType.value     = resTypeTransformer.transformToFormValue(rule.trigger.resourceType)
+            urlCaseSensitive.value = rule.trigger.urlFilterIsCaseSensitive
+        }
+        
+        
+        actionSection.addRow(actionType)
+        actionSection.addRow(selector)
         triggerSection.addRow(urlFilter)
         triggerSection.addRow(urlCaseSensitive)
         triggerSection.addRow(loadType)
         triggerSection.addRow(resourceType)
-    
-        
-        let actionSection = FormSectionDescriptor()
-        
-        let actionType    = FormRowDescriptor(tag: CustomRuleFactory.fields.type, rowType: FormRowType.Picker, title: "Type")
-        
-        actionType.configuration[FormRowDescriptor.Configuration.Options] = [
-            ContentBlockerRuleActionType.block.rawValue,
-            ContentBlockerRuleActionType.blockCookies.rawValue,
-            ContentBlockerRuleActionType.cssDisplayNone.rawValue,
-            ContentBlockerRuleActionType.ignoreRules.rawValue
-        ]
-        
-        let selector   = FormRowDescriptor(tag: CustomRuleFactory.fields.selector, rowType: FormRowType.Text, title: "CSS Selector")
-        
-        actionSection.headerTitle = "Action"
-        actionSection.addRow(actionType)
-        actionSection.addRow(selector)
         
         
         form.title = "Custom Rule"
         form.sections = [ triggerSection, actionSection ]
         
+        if self.customRule != nil {
+            
+            let section   = FormSectionDescriptor()
+            let deleteBtn = FormRowDescriptor(tag: "delete", rowType: FormRowType.Button, title: "Delete")
+            
+            deleteBtn.configuration[FormRowDescriptor.Configuration.DidSelectClosure] = {
+                
+                self.deleteButtonPressed()
+                
+            } as DidSelectClosure
+            
+            section.addRow(deleteBtn)
+            form.addSection(section)
+        }
+        
         
         return form
     }
+
 
 }

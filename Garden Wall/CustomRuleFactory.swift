@@ -65,8 +65,10 @@ class CustomRuleFactory {
                     break
                 
                 case fields.type:
-                    if let type = field as? String {
-                        action.type = ContentBlockerRuleActionType(rawValue: type)
+                    if let type = field as? [String] {
+                        if let rawValue = type.first {
+                            action.type = ContentBlockerRuleActionType(rawValue: rawValue)
+                        }
                     }
                     break
                 

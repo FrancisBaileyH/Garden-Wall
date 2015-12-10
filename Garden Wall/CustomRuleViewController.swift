@@ -19,7 +19,7 @@ class CustomRuleViewController: RuleListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.labelText = "No rules found. Press the plus sign to add a new rule."
+        self.labelText = "Press the plus sign to add a new rule."
 
         if ruleManager == nil, let file = fileManager.read("customList.json") {
             
@@ -45,6 +45,11 @@ class CustomRuleViewController: RuleListViewController {
             let controller    = navController.topViewController as! AddCustomRuleViewController
             
             controller.ruleManager = self.ruleManager
+            
+            if let index = sender as? Int {
+                controller.customRule = self.ruleManager?.fetch(index)
+                controller.customRuleIndex = index
+            }
         }
     }
     
@@ -97,6 +102,14 @@ extension CustomRuleViewController {
         }
         
         return nil
+    }
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        self.performSegueWithIdentifier("addCustomRuleSegue", sender: indexPath.row)
+
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
 
