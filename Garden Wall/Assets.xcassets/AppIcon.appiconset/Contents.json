@@ -117,14 +117,6 @@
       "filename" : "Icon-Small@3x.png",
       "role" : "companionSettings",
       "scale" : "3x"
-    },
-    {
-      "filename" : "Icon-60.png",
-      "unassigned" : true
-    },
-    {
-      "filename" : "Icon-76@3x.png",
-      "unassigned" : true
     }
   ],
   "info" : {
