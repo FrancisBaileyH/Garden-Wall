@@ -145,6 +145,13 @@ class AddCustomRuleViewController: AddItemViewController {
         resourceType.configuration[FormRowDescriptor.Configuration.Options] = resTypeTransformer.transformToFormValue()
         
         
+        let ifDomains = FormRowDescriptor(
+            tag: CustomRuleFactory.fields.ifDomain,
+            rowType: FormRowType.MultilineText,
+            title: "If Domains"
+        )
+        
+        
         let actionType = FormRowDescriptor(
             tag: CustomRuleFactory.fields.type,
             rowType: FormRowType.MultipleSelector,
@@ -163,12 +170,14 @@ class AddCustomRuleViewController: AddItemViewController {
         
         actionSection.headerTitle  = "Action"
         triggerSection.headerTitle = "Trigger"
+        triggerSection.footerTitle = "Enter one domain per line."
         
         if let rule = self.customRule {
 
             selector.value         = rule.action.selector
             urlFilter.value        = rule.trigger.urlFilter
             actionType.value       = [rule.action.type.rawValue]
+            ifDomains.value        = rule.trigger.ifDomain?.joinWithSeparator("\n")
             loadType.value         = loadTypeTransformer.transformToFormValue(rule.trigger.loadType)
             resourceType.value     = resTypeTransformer.transformToFormValue(rule.trigger.resourceType)
             urlCaseSensitive.value = rule.trigger.urlFilterIsCaseSensitive
@@ -181,6 +190,7 @@ class AddCustomRuleViewController: AddItemViewController {
         triggerSection.addRow(urlCaseSensitive)
         triggerSection.addRow(loadType)
         triggerSection.addRow(resourceType)
+        triggerSection.addRow(ifDomains)
         
         
         form.title = "Custom Rule"

@@ -14,12 +14,13 @@ class CustomRuleFactory {
     
     
     struct fields {
-        static let urlFilter: String = "urlFilter"
+        static let type             = "type"
+        static let loadType         = "loadType"
+        static let selector         = "selector"
+        static let ifDomain         = "ifDomain"
+        static let urlFilter        = "urlFilter"
+        static let resourceType     = "resourceType"
         static let urlCaseSensitive = "urlCaseSensitive"
-        static let loadType = "loadType"
-        static let resourceType = "resourceType"
-        static let type = "type"
-        static let selector = "selector"
     }
     
     
@@ -74,6 +75,23 @@ class CustomRuleFactory {
                 
                 case fields.selector:
                     action.selector = field as? String
+                    break
+                
+                case fields.ifDomain:
+                    
+                    if let domains = field as? String {
+                        
+                        var values: [String] = [String]()
+                        
+                        for domain in domains.componentsSeparatedByString("\n") {
+                            values.append(domain)
+                        }
+                        
+                        if values.count > 0 {
+                            trigger.ifDomain = values
+                        }
+                    }
+                    
                     break
                 
                 default: break
