@@ -41,18 +41,20 @@ class AddCustomRuleViewController: AddItemViewController {
         
     override func saveButtonPressed(sender: AnyObject) {
         
-        self.form.formValues()
         let rule = CustomRuleFactory.build(self.form.formValues())
         
-        if customRule != nil, let index = customRuleIndex {
-            self.ruleManager?.update(index, rule: rule)
-        }
-        else {
-            self.ruleManager?.create(rule)
-        }
+        if self.validate(rule) {
         
-        self.updateAction()
-        self.cancelButtonPressed(sender)
+            if customRule != nil, let index = customRuleIndex {
+                self.ruleManager?.update(index, rule: rule)
+            }
+            else {
+                self.ruleManager?.create(rule)
+            }
+        
+            self.updateAction()
+            self.cancelButtonPressed(sender)
+        }
     }
     
     
@@ -65,6 +67,33 @@ class AddCustomRuleViewController: AddItemViewController {
             self.fileManager?.write("customList.json", fileContents: rawJSONString)
             self.fileManager?.merge(MergedRulesFileFactory.build())
         }
+    }
+    
+    
+    func validate(rule: ContentBlockerRule) -> Bool {
+        
+        var result: Bool = true
+        var message: String = ""
+        
+        if rule.trigger.urlFilter == nil {
+            result = false
+            message += "URL Filter must not be empty\n"
+        }
+        
+        if rule.action.type == nil {
+            result = false
+            message += "Action type cannnot be empty \n"
+        }
+        else if rule.action.type == ContentBlockerRuleActionType.cssDisplayNone && rule.action.selector == nil {
+            result = false
+            message += "If css-display-none is selected, it must have an accompanying selector\n"
+        }
+        
+        if !result {
+            self.showAlert(message)
+        }
+        
+        return result
     }
     
     
@@ -83,26 +112,54 @@ class AddCustomRuleViewController: AddItemViewController {
         let actTypeTransformer  = FormEnumValueTransform<ContentBlockerRuleActionType, String>()
         
         
-        let urlFilter        = FormRowDescriptor(tag: CustomRuleFactory.fields.urlFilter, rowType: FormRowType.Text, title: "URL Filter")
+        let urlFilter        = FormRowDescriptor(
+            tag: CustomRuleFactory.fields.urlFilter,
+            rowType: FormRowType.Text,
+            title: "URL Filter"
+        )
         urlFilter.configuration[FormRowDescriptor.Configuration.CellConfiguration] = textFieldSettings
         
-        let urlCaseSensitive = FormRowDescriptor(tag: CustomRuleFactory.fields.urlCaseSensitive, rowType: FormRowType.BooleanCheck, title: "URL Filter is Case Sensitive")
-        let loadType         = FormRowDescriptor(tag: CustomRuleFactory.fields.loadType, rowType: FormRowType.MultipleSelector, title: "Load Type")
         
+        let urlCaseSensitive = FormRowDescriptor(
+            tag: CustomRuleFactory.fields.urlCaseSensitive,
+            rowType: FormRowType.BooleanCheck,
+            title: "URL Filter is Case Sensitive"
+        )
+        
+        
+        let loadType         = FormRowDescriptor(
+            tag: CustomRuleFactory.fields.loadType,
+            rowType: FormRowType.MultipleSelector,
+            title: "Load Type"
+        )
         loadType.configuration[FormRowDescriptor.Configuration.AllowsMultipleSelection] = true
         loadType.configuration[FormRowDescriptor.Configuration.Options] = loadTypeTransformer.transformToFormValue()
         
-        let resourceType = FormRowDescriptor(tag: CustomRuleFactory.fields.resourceType, rowType: FormRowType.MultipleSelector, title: "Resource Type")
         
+        let resourceType = FormRowDescriptor(
+            tag: CustomRuleFactory.fields.resourceType,
+            rowType: FormRowType.MultipleSelector,
+            title: "Resource Type"
+        )
         resourceType.configuration[FormRowDescriptor.Configuration.AllowsMultipleSelection] = true
         resourceType.configuration[FormRowDescriptor.Configuration.Options] = resTypeTransformer.transformToFormValue()
         
-        let actionType = FormRowDescriptor(tag: CustomRuleFactory.fields.type, rowType: FormRowType.MultipleSelector, title: "Type")
         
+        let actionType = FormRowDescriptor(
+            tag: CustomRuleFactory.fields.type,
+            rowType: FormRowType.MultipleSelector,
+            title: "Type"
+        )
         actionType.configuration[FormRowDescriptor.Configuration.Options] = actTypeTransformer.transformToFormValue()
         
-        let selector = FormRowDescriptor(tag: CustomRuleFactory.fields.selector, rowType: FormRowType.Text, title: "CSS Selector")
+        
+        let selector = FormRowDescriptor(
+            tag: CustomRuleFactory.fields.selector,
+            rowType: FormRowType.Text,
+            title: "CSS Selector"
+        )
         selector.configuration[FormRowDescriptor.Configuration.CellConfiguration] = textFieldSettings
+        
         
         actionSection.headerTitle  = "Action"
         triggerSection.headerTitle = "Trigger"
