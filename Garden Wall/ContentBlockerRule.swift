@@ -125,8 +125,8 @@ class ContentBlockerRule: Mappable {
     
     init(trigger: ContentBlockerRuleTrigger, action: ContentBlockerRuleAction) {
         
-        self.action  = action
         self.trigger = trigger
+        self.action  = action
     }
     
     

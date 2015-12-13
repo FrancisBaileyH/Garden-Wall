@@ -16,6 +16,7 @@ class AddCustomRuleViewController: AddItemViewController {
 
     
     var ruleManager: ContentBlockerRuleManager?
+    var fileManager: ContentBlockerFileManager?
     var customRule: ContentBlockerRule?
     var customRuleIndex: Int?
     
@@ -31,6 +32,7 @@ class AddCustomRuleViewController: AddItemViewController {
         
         if let rule = self.customRule {
             self.ruleManager?.delete(rule)
+            self.updateAction()
             self.cancelButtonPressed(self)
         }
         
@@ -49,7 +51,20 @@ class AddCustomRuleViewController: AddItemViewController {
             self.ruleManager?.create(rule)
         }
         
+        self.updateAction()
         self.cancelButtonPressed(sender)
+    }
+    
+    
+    /*
+     * Run any time an update action occurs on the rule
+    */
+    func updateAction() {
+        
+        if let rawJSONString = self.ruleManager?.getRawJSONString() {
+            self.fileManager?.write("customList.json", fileContents: rawJSONString)
+            self.fileManager?.merge(MergedRulesFileFactory.build())
+        }
     }
     
     

@@ -44,31 +44,7 @@ class WhitelistViewController: RuleListViewController {
             let controller    = navController.topViewController as! AddWhitelistItemViewController
             
             controller.ruleManager = self.ruleManager
-        }
-    }
-    
-    
-    /*
-     * Our view was deinitialized so we'll write the JSON back to the file
-     * This saves us from writing it each time a change is made, and instead 
-     * writes only when we exit this view
-     *
-     * @TODO Refactor this so that it's using a WhiteListEntity and BlockerListEntity
-     *  to perform CRUD operations and abstract out the reloading and such
-    */
-    deinit {
-
-        if let rawJSONString = self.ruleManager?.getRawJSONString() {
-            self.fileManager.write("whitelist.json", fileContents: rawJSONString)
-            
-            if let mergedJSON = MergedRulesFileFactory.build() {
-                self.fileManager.write("blockerList.json", fileContents: mergedJSON)
-                SFContentBlockerManager.reloadContentBlockerWithIdentifier("com.francisbailey.Garden-Wall.ContentBlocker", completionHandler: { (error: NSError?) in
-                    NSLog("\(error)")
-                    NSLog("\(error?.code)")
-                })
-            }
-            
+            controller.fileManager = self.fileManager
         }
     }
     
@@ -82,7 +58,7 @@ extension WhitelistViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("WhitelistRuleCell", forIndexPath: indexPath)
         
-        if let title = rules?[indexPath.row].trigger.ifDomain?[0] {
+        if let trigger = rules?[indexPath.row].trigger, let title = trigger.ifDomain?[0] {
             
             cell.textLabel?.text = title
         }
@@ -110,6 +86,20 @@ extension WhitelistViewController {
         }
         
         return nil
+    }
+    
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    
+        super.tableView(tableView, commitEditingStyle: editingStyle, forRowAtIndexPath: indexPath)
+        
+        if editingStyle == .Delete {
+
+            if let rawJSONString = self.ruleManager?.getRawJSONString() {
+                self.fileManager.write("whitelist.json", fileContents: rawJSONString)
+                self.fileManager.merge(MergedRulesFileFactory.build())
+            }
+        }
     }
     
 }

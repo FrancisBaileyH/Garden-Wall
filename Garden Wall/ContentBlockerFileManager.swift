@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SafariServices
 
 
 class ContentBlockerFileManager {
@@ -63,6 +64,16 @@ class ContentBlockerFileManager {
         }
     
         return false
+    }
+    
+    
+    func merge(fileContents: String?) {
+        
+        if let contents = fileContents {
+            
+            self.write("blockerList.json", fileContents: contents)
+            SFContentBlockerManager.reloadContentBlockerWithIdentifier("com.francisbailey.Garden-Wall.ContentBlocker", completionHandler: nil)
+        }
     }
     
     

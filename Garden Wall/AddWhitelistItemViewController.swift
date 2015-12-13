@@ -16,6 +16,7 @@ class AddWhitelistItemViewController: AddItemViewController {
 
     
     var ruleManager: ContentBlockerRuleManager?
+    var fileManager: ContentBlockerFileManager?
     
     
     /*
@@ -49,6 +50,12 @@ class AddWhitelistItemViewController: AddItemViewController {
                 self.showAlert("Whitelisted site already added.")
             }
             else {
+                
+                if let rawJSONString = self.ruleManager?.getRawJSONString() {
+                    self.fileManager?.write("whitelist.json", fileContents: rawJSONString)
+                    self.fileManager?.merge(MergedRulesFileFactory.build())
+                }
+                
                 return true
             }
         }

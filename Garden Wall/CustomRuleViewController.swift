@@ -45,6 +45,7 @@ class CustomRuleViewController: RuleListViewController {
             let controller    = navController.topViewController as! AddCustomRuleViewController
             
             controller.ruleManager = self.ruleManager
+            controller.fileManager = self.fileManager
             
             if let index = sender as? Int {
                 controller.customRule = self.ruleManager?.fetch(index)
@@ -53,23 +54,6 @@ class CustomRuleViewController: RuleListViewController {
         }
     }
     
-    
-    /*
-     * Our view was deinitialized so we'll write the JSON back to the file
-     * This saves us from writing it each time a change is made, and instead
-     * writes only when we exit this view
-    */
-    deinit {
-        
-        if let rawJSONString = self.ruleManager?.getRawJSONString() {
-            self.fileManager.write("customList.json", fileContents: rawJSONString)
-            
-            if let mergedJSON = MergedRulesFileFactory.build() {
-                self.fileManager.write("blockerList.json", fileContents: mergedJSON)
-                SFContentBlockerManager.reloadContentBlockerWithIdentifier("com.francisbailey.Garden-Wall.ContentBlocker", completionHandler: nil)
-            }
-        }
-    }
     
 }
 
@@ -110,6 +94,21 @@ extension CustomRuleViewController {
         self.performSegueWithIdentifier("addCustomRuleSegue", sender: indexPath.row)
 
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        super.tableView(tableView, commitEditingStyle: editingStyle, forRowAtIndexPath: indexPath)
+        
+        if editingStyle == .Delete {
+            
+            if let rawJSONString = self.ruleManager?.getRawJSONString() {
+                self.fileManager.write("customList.json", fileContents: rawJSONString)
+                self.fileManager.merge(MergedRulesFileFactory.build())
+            }
+
+        }
     }
 }
 
