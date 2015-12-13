@@ -74,6 +74,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             if GBVersionTracking.isFirstLaunchForBuild() {
                 try fileManager.copyItemAtPath(blockerListPath!, toPath: blockerListURL!.path!)
+                let customFileManager = ContentBlockerFileManager.sharedInstance
+                customFileManager.merge(MergedRulesFileFactory.build())
             }
         }
         catch {
